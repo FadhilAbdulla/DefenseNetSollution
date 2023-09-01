@@ -126,7 +126,7 @@ ul {
 p {
   font-size: 15px;
   line-height: 30px;
-  color: #2a2a2a;
+  color: green;
 }
 
 img {
@@ -141,7 +141,7 @@ global styles
 */
 html,
 body {
-  background: #fff;
+  background: #000000;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -178,7 +178,7 @@ body {
 .section-heading h2 {
   font-size: 30px;
   text-transform: capitalize;
-  color: #2a2a2a;
+  color: #fff;
   font-weight: 700;
   letter-spacing: 0.25px;
   position: relative;
@@ -391,7 +391,7 @@ header
   display: block;
   font-weight: 500;
   font-size: 15px;
-  color: #2a2a2a;
+  color: #fff;
   text-transform: capitalize;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -404,7 +404,7 @@ header
 }
 
 .header-area .main-nav .nav li a {
-  color: #2a2a2a;
+  color: #fff;
 }
 
 .header-area .main-nav .nav li:hover a,
@@ -427,14 +427,14 @@ header
   font-family: FontAwesome;
   content: "\f107";
   font-size: 12px;
-  color: #2a2a2a;
+  color: #fff;
   position: absolute;
   right: 18px;
   top: 12px;
 }
 
 .background-header .main-nav .nav li.submenu:after {
-  color: #2a2a2a;
+  color: #fff;
 }
 
 .header-area .main-nav .nav li.submenu ul {
@@ -460,7 +460,7 @@ header
   opacity: 1;
   display: block;
   background: #f7f7f7;
-  color: #2a2a2a!important;
+  color: #fff!important;
   padding-left: 20px;
   height: 40px;
   line-height: 40px;
@@ -905,7 +905,7 @@ Banner Style
 .main-banner .item h2 {
   font-size: 50px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: grey;
   line-height: 72px;
 }
 
@@ -958,7 +958,7 @@ Banner Style
   font-size: 20px;
   font-weight: 500;
   margin-left: 10px;
-  color: #2a2a2a;
+  color: #fff;
   width: 15px;
   display: inline-block;
   text-align: center;
@@ -1028,7 +1028,7 @@ Services Style
 .our-services .item h4 {
   font-size: 20px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: grey;
   margin-bottom: 30px;
   line-height: 30px;
 }
@@ -1100,7 +1100,7 @@ About
 .about-us .fact-item .count-digit {
   font-size: 48px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: #fff;
   margin-top: 5px;
 }
 
@@ -1343,7 +1343,7 @@ Pricing
 .pricing-tables .item h4 {
   font-size: 20px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: #fff;
 }
 
 .pricing-tables .item em {
@@ -1448,7 +1448,7 @@ Subscribe
   outline: none;
   padding: 0px 20px;
   font-size: 15px;
-  color: #2a2a2a;
+  color: #fff;
 }
 
 .subscribe .inner-content form input#website {
@@ -1747,7 +1747,7 @@ form#contact input {
   outline: none;
   font-size: 15px;
   font-weight: 300;
-  color: #2a2a2a;
+  color: #fff;
   padding: 0px 0px;
   margin-bottom: 35px;
 }
@@ -1796,7 +1796,7 @@ footer {
 footer .footer-item h4 {
   font-size: 18px;
   font-weight: 700;
-  color: #2a2a2a;
+  color: #fff;
   margin-bottom: 30px;
 }
 
