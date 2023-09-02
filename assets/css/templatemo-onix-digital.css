@@ -372,14 +372,14 @@ header
 
 .header-area .main-nav .nav li:last-child a ,
 .background-header .main-nav .nav li:last-child a {
-  color: #fff !important;
+  color: #000000 !important;
   padding: 0px 20px;
   font-weight: 400;
 }
 
 .header-area .main-nav .nav li:last-child a:hover,
 .header-area .main-nav .nav li:last-child a.active {
-  color: #fff !important;
+  color: #000000 !important;
 }
 
 .header-area .main-nav .nav li:last-child .main-red-button-hover a:hover,
@@ -391,7 +391,7 @@ header
   display: block;
   font-weight: 500;
   font-size: 15px;
-  color: #fff;
+  color: #000000;
   text-transform: capitalize;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -404,7 +404,7 @@ header
 }
 
 .header-area .main-nav .nav li a {
-  color: #fff;
+  color: #000000;
 }
 
 .header-area .main-nav .nav li:hover a,
