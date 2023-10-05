@@ -1,119 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>DefenseNet Solution</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon1.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+    <meta charset="utf-8">
+    <title>DefenseNet Solutions</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
-	
-	
-	<div class="bg-img1 size1 flex-w flex-c-m p-t-55 p-b-55 p-l-15 p-r-15" style="background-image: url('images/bg01.jpg');">
-		<div class="wsize1 bor1 bg2 p-t-175 p-b-45 p-l-15 p-r-15 respon1">
-			<div class="wrappic1">
-				<img src="images/icons/logo.png" alt="LOGO">
-			</div>
 
-			<p class="txt-center m1-txt1 p-t-33 p-b-68 mt-4">
-				We're in the process of revamping our website
-			</p>
-
-			<div class="wsize2 flex-w flex-c hsize1 cd100">
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 days">2</span>
-					<span class="s1-txt1">Days</span>
-				</div>
-
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 hours">3</span>
-					<span class="s1-txt1">Hours</span>
-				</div>
-
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 minutes">50</span>
-					<span class="s1-txt1">Minutes</span>
-				</div>
-
-				<div class="flex-col-c-m size2 how-countdown">
-					<span class="l1-txt1 p-b-9 seconds">39</span>
-					<span class="s1-txt1">Seconds</span>
-				</div>
-			</div>
-
-			<form class="flex-w flex-c-m contact100-form validate-form p-t-55">
-				<div class="wrap-input100 validate-input where1" data-validate = "Email is required: ex@abc.xyz">
-					<input class="s1-txt2 placeholder0 input100" type="text" name="email" placeholder="Your Email">
-					<span class="focus-input100"></span>
-				</div>
-
-				
-				<button class="flex-c-m s1-txt3 size3 how-btn trans-04 where1">
-					Get Notified
-				</button>
-				
-			</form>
-
-			<!-- <p class="s1-txt4 txt-center p-t-10">
-				I promise to <span class="bor2">never</span> spam
-			</p> -->
-			
-		</div>
-	</div>
+<div>
+    <!-- Topbar Start -->
+    <!-- <div class="container-fluid bg-secondary ps-5 pe-0 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-body py-2 pe-3 border-end" href=""><small>FAQs</small></a>
+                    <a class="text-body py-2 px-3 border-end" href=""><small>Support</small></a>
+                    <a class="text-body py-2 px-3 border-end" href=""><small>Privacy</small></a>
+                    <a class="text-body py-2 px-3 border-end" href=""><small>Policy</small></a>
+                    <a class="text-body py-2 ps-3" href=""><small>Career</small></a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-lg-end">
+                <div class="position-relative d-inline-flex align-items-center bg-primary text-white top-shape px-5">
+                    <div class="me-3 pe-3 border-end py-2">
+                        <p class="m-0"><i class="fa fa-envelope-open me-2"></i>info@example.com</p>
+                    </div>
+                    <div class="py-2">
+                        <p class="m-0"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Topbar End -->
 
 
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light shadow-sm px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <img src="img/MainLogo.png" width="180" alt="Description of the image">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 me-n3">
+                <a href="#" class="nav-item nav-link" class="active">Home</a>
+                <a href="#About" class="nav-item nav-link">About</a>
+                <a href="#Service" class="nav-item nav-link">Service</a>
+                <a href="#Blogs" class="nav-item nav-link">Blogs</a>
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                        <a href="detail.html" class="dropdown-item">Blog Detail</a>
+                        <a href="feature.html" class="dropdown-item">Features</a>
+                        <a href="quote.html" class="dropdown-item">Quote Form</a>
+                        <a href="team.html" class="dropdown-item">The Team</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    </div>
+                </div> -->
+                <a href="#ContactUS" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
 
-	
 
-<!--===============================================================================================-->	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/moment.min.js"></script>
-	<script src="vendor/countdowntime/moment-timezone.min.js"></script>
-	<script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-	<script>
-		$('.cd100').countdown100({
-			/*Set Endtime here*/
-			/*Endtime must be > current time*/
-			endtimeYear: 0,
-			endtimeMonth: 0,
-			endtimeDate: 2,
-			endtimeHours: 3,
-			endtimeMinutes: 50,
-			endtimeSeconds: 30,
-			timeZone: "" 
-			// ex:  timeZone: "America/New_York"
-			//go to " http://momentjs.com/timezone/ " to get timezone
-		});
-	</script>
-<!--===============================================================================================-->
-	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="img/NewCarousel3.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white "> Detect and respond to threats that may evade conventional security measures</h5>
+                            <h1 class="display-1 text-white mb-md-4 text-uppercase">Advanced Threat Detection and Response</h1>
+                            <a href="#GetQuote" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Get Quote</a>
+                            <a href="#ContactUS" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/NewCarousel2.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white "> Monitor, detect, and respond to security threats and incidents for your Cloud Environments</h5>
+                            <h1 class="display-1 text-white mb-md-4 text-uppercase">Cloud Detection And Response</h1>
+                            <a href="#GetQuote" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Get Quote</a>
+                            <a href="#ContactUS" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/NewCarousel1.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white ">Effectively and Efficiently manage and mitigate the impact of the incident and minimize damage</h5>
+                            <h1 class="display-1 text-white mb-md-4 text-uppercase">Incident Response</h1>
+                            <a href="#GetQuote" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Get Quote</a>
+                            <a href="#ContactUS" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
 
-</body>
+
+    <!-- About Start -->
+    <div class="container-fluid bg-secondary p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 py-6 px-5">
+                <h1 class="display-5 mb-4">DEFENSENET <span class="text-primary">SOLUTIONS</span></h1>
+                <h4 class="text-primary mb-4">GUARDIANS OF DIGITAL REALM</h4>Guardians of digital realm
+                <p class="mb-4">Et stet ipsum nonumy rebum eos justo, accusam invidunt aliquyam stet magna at et
+                    sanctus, vero sea sit amet dolores, sit dolor duo invidunt dolor, kasd rebum consetetur diam
+                    invidunt erat stet. Accusam nonumy lorem kasd eirmod. Justo clita sadipscing ea invidunt rebum
+                    sadipscing consetetur. Amet diam amet amet sanctus sanctus invidunt erat ipsum eirmod.</p>
+                <a href="#GetQuote" class="btn btn-primary py-md-3 px-md-5 rounded-pill">Get A Quote</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="h-100 d-flex flex-column justify-content-center bg-primary p-5">
+                    <div class="d-flex text-white mb-5">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-user-tie fs-4"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h3>24/7 Security Operation Center Expertise</h3>
+                            <p class="mb-0">Providing Expertise that measurably improves security posture</p>
+                        </div>
+                    </div>
+                    <div class="d-flex text-white mb-5">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-chart-line fs-4"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h3>Unparalleled Threat Intelligence</h3>
+                            <p class="mb-0">Minimizing the likelihood of a successful attack in today's landscape</p>
+                        </div>
+                    </div>
+                    <div class="d-flex text-white">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-balance-scale fs-4"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h3>Penetration Testing</h3>
+                            <p class="mb-0">Subscription or project-based testing, delivered by global experts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Features Start -->
+    <div class="container-fluid py-6 px-5" id="About">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">Why Choose Us!!!</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-cubes fs-4 text-white"></i>
+                        </div>
+                        <h3>Co-managed Soc</h3>
+                        <p class="mb-0">Eliminate alert fatigue, focus your SecOps team, stop threats fast and reduce cyber risk</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-percent fs-4 text-white"></i>
+                        </div>
+                        <h3>Database Security</h3>
+                        <p class="mb-0">Get ahead of database risk, protect data and exceed compliance</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-award fs-4 text-white"></i>
+                        </div>
+                        <h3>Consulting and Professional Services</h3>
+                        <p class="mb-0">Tap in to our Global team of tenured Cybersecurity specialists</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-block bg-primary h-100 text-center rounded">
+                    <img class="img-fluid rounded" src="img/124.jpg" alt="">
+                    <div class="p-4">
+                        <p class="text-white mb-4">At DefenseNet, we are committed to providing industry-leading security consulting services tailored to your unique needs. With years of experience and a team of dedicated experts, we have successfully safeguarded businesses of all sizes against evolving cyber threats and security challenges.</p>
+                        <a href="#ContactUS" class="btn btn-light py-md-3 px-md-5 rounded-pill mb-2">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
+                            <i class="far fa-smile-beam fs-4 text-white"></i>
+                        </div>
+                        <h3>Managed Risk</h3>
+                        <p class="mb-0">Continous Vulnerability and Risk Management</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-user-tie fs-4 text-white"></i>
+                        </div>
+                        <h3>Cloud Security Posture Management</h3>
+                        <p class="mb-0">Risk Management for your Cloud Environments</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                            style="width: 60px; height: 60px;">
+                            <i class="fa fa-headset fs-4 text-white"></i>
+                        </div>
+                        <h3>Incident Response</h3>
+                        <p class="mb-0">Recover Quickly from Cyber Attacks and Breaches</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Features Start -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid pt-6 px-5 mb-4 pb-4" id="Service">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">What We Offer</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
+                        style="width: 90px; height: 90px;">
+                        <i class="fa fa-user-tie fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Business Research</h3>
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor ipsum amet eos erat ipsum lorem et sit
+                        sed stet lorem</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
+                        style="width: 90px; height: 90px;">
+                        <i class="fa fa-chart-pie fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Stretagic Planning</h3>
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor ipsum amet eos erat ipsum lorem et sit
+                        sed stet lorem</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
+                        style="width: 90px; height: 90px;">
+                        <i class="fa fa-chart-line fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Market Analysis</h3>
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor ipsum amet eos erat ipsum lorem et sit
+                        sed stet lorem</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+
+
+
+    <!-- Quote Start -->
+    <div class="container-fluid bg-secondary px-0 " id="GetQuote">
+        <div class="row g-0">
+            <div class="col-lg-6 py-6 px-5">
+                <h1 class="display-5 mb-4">Request A Quote</h1>
+                <p class="mb-4">Kasd vero erat ea amet justo no stet, et elitr no dolore no elitr sea kasd et dolor diam
+                    tempor. Nonumy sed dolore no eirmod sit nonumy vero lorem amet stet diam at. Ea at lorem sed et,
+                    lorem et rebum ut eirmod gubergren, dolor ea duo diam justo dolor diam ipsum dolore stet stet elitr
+                    ut. Ipsum amet labore lorem lorem diam magna sea, eos sed dolore elitr.</p>
+                <form>
+                    <div class="row gx-3">
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="form-floating-1" placeholder="John Doe">
+                                <label for="form-floating-1">Full Name</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="form-floating-2"
+                                    placeholder="name@example.com">
+                                <label for="form-floating-2">Email address</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelect" aria-label="Financial Consultancy">
+                                    <option selected>Soc Service</option>
+                                    <option value="1">Penetration Testing</option>
+                                    <option value="2">Threat Intelligence</option>
+                                </select>
+                                <label for="floatingSelect">Select A Service</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary w-100 h-100" type="submit">Request A Quote</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6 p-4" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100 rounded" src="img/quote.jpg" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote End -->
+
+
+    <!-- Team Start -->
+    <!-- <div class="container-fluid py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">Our Team Members</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="team-item position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                    <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                        <h3 class="text-white">Full Name</h3>
+                        <p class="text-white text-uppercase mb-0">Designation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-item position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                    <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                        <h3 class="text-white">Full Name</h3>
+                        <p class="text-white text-uppercase mb-0">Designation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-item position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                    <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                        <h3 class="text-white">Full Name</h3>
+                        <p class="text-white text-uppercase mb-0">Designation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <!-- <div class="container-fluid bg-secondary p-0">
+        <div class="row g-0">
+            <div class="col-lg-6" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="img/testimonial.jpg" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 py-6 px-5">
+                <h1 class="display-5 mb-4">What Say Our Client!!!</h1>
+                <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item">
+                        <p class="fs-4 fw-normal mb-4"><i class="fa fa-quote-left text-primary me-3"></i>Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat dolor rebum sit ipsum.</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded-circle" src="img/testimonial-1.jpg" alt="">
+                            <div class="ps-4">
+                                <h3>Client Name</h3>
+                                <span class="text-uppercase">Profession</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <p class="fs-4 fw-normal mb-4"><i class="fa fa-quote-left text-primary me-3"></i>Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat dolor rebum sit ipsum.</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded-circle" src="img/testimonial-2.jpg" alt="">
+                            <div class="ps-4">
+                                <h3>Client Name</h3>
+                                <span class="text-uppercase">Profession</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Testimonial End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-6 px-5" id="Blogs">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">Latest Blog Post</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="img/blog-1.jpg" alt="">
+                    </div>
+                    <div class="bg-secondary d-flex">
+                        <!-- <div
+                            class="flex-shrink-0 d-flex flex-column justify-content-center text-center bg-primary text-white px-4">
+                            <span>01</span>
+                            <h5 class="text-uppercase m-0">Sep</h5>
+                            <span>2045</span>
+                        </div> -->
+                        <div class="d-flex flex-column justify-content-center py-3 px-4">
+                            <div class="d-flex mb-2">
+                                <small class="text-uppercase me-3"><i class="bi bi-bookmarks me-2"></i>CVE</small>
+                            </div>
+                            <a class="h4" href="">CVE Mitigation Strategies: Navigating the Patching Paradox</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="img/blog-2.jpg" alt="">
+                    </div>
+                    <div class="bg-secondary d-flex">
+                        <!-- <div
+                            class="flex-shrink-0 d-flex flex-column justify-content-center text-center bg-primary text-white px-4">
+                            <span>01</span>
+                            <h5 class="text-uppercase m-0">Jan</h5>
+                            <span>2045</span>
+                        </div> -->
+                        <div class="d-flex flex-column justify-content-center py-3 px-4">
+                            <div class="d-flex mb-2">
+                                <small class="text-uppercase me-3"><i class="bi bi-bookmarks me-2"></i>Splunk</small>
+                            </div>
+                            <a class="h4" href="">Real-Time Firewall Monitoring with Splunk: Detecting Anomalies and Threats</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="img/blog-3.jpg" alt="">
+                    </div>
+                    <div class="bg-secondary d-flex">
+                        <!-- <div
+                            class="flex-shrink-0 d-flex flex-column justify-content-center text-center bg-primary text-white px-4">
+                            <span>01</span>
+                            <h5 class="text-uppercase m-0">Jan</h5>
+                            <span>2045</span>
+                        </div> -->
+                        <div class="d-flex flex-column justify-content-center py-3 px-4">
+                            <div class="d-flex mb-2">
+                                <small class="text-uppercase me-3"><i class="bi bi-bookmarks me-2"></i>Security</small>
+                            </div>
+                            <a class="h4" href="">The Role of Artificial Intelligence in Modern Cybersecurity</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+    <!-- Contact Start -->
+    <div class="container-fluid bg-secondary px-0" id="ContactUS">
+        <div class="row g-0">
+            <div class="col-lg-6 py-6 px-5">
+                <h1 class="display-5 mb-4">Contact For Any Queries</h1>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="form-floating-1" placeholder="John Doe">
+                                <label for="form-floating-1">Full Name</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="form-floating-2"
+                                    placeholder="name@example.com">
+                                <label for="form-floating-2">Email address</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="form-floating-3" placeholder="Subject">
+                                <label for="form-floating-3">Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Message" id="form-floating-4"
+                                    style="height: 150px"></textarea>
+                                <label for="form-floating-4">Message</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6 p-4" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <iframe class="position-relative w-100 h-100"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
+                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    <!-- Footer Start -->
+
+    <div class="container-fluid bg-dark text-secondary p-5 ">
+        <div class="row g-5">
+            <div class="col-lg-2 col-md-6">
+                <h3 class="text-white mb-4">Quick Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-secondary mb-2" href="#About"><i class="bi bi-arrow-right text-primary me-2"></i>About
+                        Us</a>
+                    <a class="text-secondary mb-2" href="#Service"><i class="bi bi-arrow-right text-primary me-2"></i>Our
+                        Service</a>
+                    <a class="text-secondary mb-2" href="#Blogs"><i class="bi bi-arrow-right text-primary me-2"></i>Latest
+                        Blogs</a>
+                    <a class="text-secondary mb-2" href="#GetQuote"><i class="bi bi-arrow-right text-primary me-2"></i>Request A Quote</a>
+                    <a class="text-secondary" href="#ContactUS"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+
+                </div>
+            </div>
+            <!-- <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Popular Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>About
+                        Us</a>
+                    <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Our
+                        Services</a>
+                    <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest
+                        Blog Post</a>
+                    <a class="text-secondary" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                </div>
+            </div> -->
+            <div class="col-lg-4 col-md-6">
+                <h3 class="text-white mb-4">Get In Touch</h3>
+                <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>14/291 M, Suite 95L 1st Floor, A Square Building, Edappally Pukkattupady Road, Edathala PO, Ernakulam, Kerala (683561)</p>
+                <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>nizam@defensenetsolutions.com</p>
+                <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+91 74032 32442</p>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="mb-4 text-secondary ">
+                    <div class="text-center">
+
+                        <form class="mx-auto" style="max-width: 600px;">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-white p-3"
+                                    placeholder="Subscribe For Newsletter">
+                                <button class="btn btn-primary px-4">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <h3 class="text-white mb-4">Follow Us</h3>
+                <div class="d-flex">
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                            class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                            class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                            class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i
+                            class="fab fa-instagram fw-normal"></i></a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-secondary text-center border-top py-2 px-2"
+        style="border-color: rgba(256, 256, 256, .1) !important; font-size: 10px !important;">
+        <p class="m-0">&copy; <a class="text-secondary border-bottom" >DefenseNet Solutions</a>. All Rights Reserved.
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Acc
+        $(document).ready(function () {
+            $('.navbar-nav .nav-link').click(function (e) {
+                e.preventDefault();
+                $('.navbar-nav .nav-link').removeClass('active');
+                $(this).addClass('active');
+                var targetId = $(this).attr('href');
+                window.location.href = window.location.href.split('#')[0] + targetId;
+            });
+        });
+    </script>
+    </body>
+
 </html>

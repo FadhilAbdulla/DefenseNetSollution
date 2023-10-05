@@ -134,6 +134,8 @@ img {
   overflow: hidden;
 }
 
+
+
 /* 
 ---------------------------------------------
 global styles
@@ -307,7 +309,7 @@ header
 }
 
 .header-area {
-  background-color: #fafafa;
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0px;
   left: 0px;
@@ -327,7 +329,7 @@ header
 
 .header-area .main-nav .logo {
   line-height: 100px;
-  color: #fff;
+  color: black;
   font-size: 28px;
   font-weight: 700;
   text-transform: uppercase;
@@ -695,8 +697,8 @@ header
   }
   .header-area .main-nav .nav li {
     width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #e7e7e7;
+    background: black;
+    border-bottom: 1px solid black;
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
@@ -705,11 +707,11 @@ header
     line-height: 50px !important;
     padding: 0px !important;
     border: none !important;
-    background: #f7f7f7 !important;
+    background: black !important;
     color: #191a20 !important;
   }
   .header-area .main-nav .nav li a:hover {
-    background: #eee !important;
+    background: black !important;
     color: #ff685f!important;
   }
   .header-area .main-nav .nav li.submenu ul {
@@ -1256,9 +1258,9 @@ Portfolio
   background-color: #ff695f;
   display: inline-block;
   text-align: center;
-  line-height: 46px;
+  line-height: 46 px;
   border-radius: 50%;
-  color: #fff;
+  color: green;
   content: '\f105';
   font-size: 22px;
   font-family: 'FontAwesome';
