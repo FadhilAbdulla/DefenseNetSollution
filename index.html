@@ -335,6 +335,14 @@
                                 <label for="QuoteSelect">Select A Service</label>
                             </div>
                         </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="QuoteWhatsAppConsent" required>
+                                <label class="form-check-label small" for="QuoteWhatsAppConsent">
+                                    I agree to be contacted via WhatsApp, phone, or email regarding my enquiry. I have read and accept the <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms-and-conditions.html" target="_blank">Terms &amp; Conditions</a>.
+                                </label>
+                            </div>
+                        </div>
                         <div class="col-6">
                             <button class="btn btn-primary w-100 h-100" type="submit">Request A Quote</button>
                         </div>
@@ -439,6 +447,14 @@
                             </div>
                         </div>
                         <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="ContactWhatsAppConsent" required>
+                                <label class="form-check-label small" for="ContactWhatsAppConsent">
+                                    I agree to be contacted via WhatsApp, phone, or email regarding my enquiry. I have read and accept the <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms-and-conditions.html" target="_blank">Terms &amp; Conditions</a>.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
                         </div>
                     </div>
@@ -477,10 +493,10 @@
                 <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>nizam@defensenetsolutions.com</p>
                 <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+91 86603 71224</p>
             </div>
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-3 col-md-6">
                 <div class="mb-4 text-secondary">
                     <div class="text-center">
-                        <form class="mx-auto" style="max-width: 600px;">
+                        <form class="mx-auto">
                             <div class="input-group">
                                 <input type="email" class="form-control border-white p-3" placeholder="Subscribe For Newsletter">
                                 <button class="btn btn-primary px-4" type="submit">Sign Up</button>
@@ -496,6 +512,13 @@
                     <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" aria-label="Follow us on Instagram" href="#"><i class="fab fa-instagram fw-normal"></i></a>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-6">
+                <h3 class="text-white mb-4">Legal</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="privacy-policy.html"><i class="bi bi-arrow-right text-primary me-2"></i>Privacy Policy</a>
+                    <a class="text-secondary" href="terms-and-conditions.html"><i class="bi bi-arrow-right text-primary me-2"></i>Terms &amp; Conditions</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container-fluid bg-dark text-secondary text-center border-top py-2 px-2" style="border-color: rgba(256, 256, 256, .1) !important; font-size: 10px !important;">
@@ -506,6 +529,34 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/918660371224?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20cybersecurity%20services." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            z-index: 9999;
+            transition: transform 0.2s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+    </style>
 
 
     <!-- JavaScript Libraries -->
