@@ -8,7 +8,9 @@ export const site = {
   name: "DefenseNet Solutions",
   shortName: "DefenseNet",
   legalName: "DefenseNet Solutions",
-  url: "https://www.defensenetsolutions.com",
+  // Apex is the canonical host — Vercel 301s www → apex, so canonicals,
+  // sitemap entries and JSON-LD @ids must resolve here without a redirect.
+  url: "https://defensenetsolutions.com",
   tagline: "AI-Based Security",
   description:
     "DefenseNet Solutions is an AI-based cybersecurity company in Kerala, India. Autonomous 24/7 SOC, VAPT, incident response, cloud security and SIEM engineering for businesses across India and the Gulf.",
