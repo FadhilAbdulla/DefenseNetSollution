@@ -176,7 +176,7 @@ export function Hero() {
                 {[
                   { k: "Alerts / 24h", v: "18,204" },
                   { k: "Auto-resolved", v: "91.4%" },
-                  { k: "Median triage", v: "11m 42s" },
+                  { k: "Median triage", v: "1m 48s" },
                 ].map((stat) => (
                   <div key={stat.k} className="px-4 py-3.5">
                     <p className="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-ink-muted">

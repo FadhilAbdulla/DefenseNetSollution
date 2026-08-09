@@ -131,7 +131,7 @@ export const primaryNav: NavItem[] = [
 export const metrics = [
   { value: "100+", label: "Clients protected", detail: "India & the Gulf" },
   { value: "500+", label: "Incidents resolved", detail: "Since 2021" },
-  { value: "< 15 min", label: "Median triage time", detail: "AI-assisted SOC" },
+  { value: "< 2 min", label: "Median triage time", detail: "AI-assisted SOC" },
   { value: "24/7/365", label: "SOC coverage", detail: "Guaranteed SLAs" },
 ];
 
@@ -165,7 +165,7 @@ export const services: Service[] = [
     summary:
       "A 24/7 security operations centre where machine learning does the first pass on every alert and certified analysts do the thinking. You get investigated incidents, not raw noise.",
     outcomes: [
-      "Median triage under 15 minutes, around the clock",
+      "Median triage under 2 minutes, around the clock",
       "Up to 90% of low-value alerts closed automatically before a human sees them",
       "One accountable team for detection, investigation and containment",
     ],

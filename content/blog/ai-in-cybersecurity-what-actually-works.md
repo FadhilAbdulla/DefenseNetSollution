@@ -19,7 +19,7 @@ That work is repetitive, context-heavy and well-suited to automation:
 - **Correlation.** Recognising that four alerts across three tools describe one attacker performing one sequence of actions.
 - **Prioritisation.** Ranking what an analyst should look at first when 200 things arrived overnight.
 
-Do those three things well and you have not replaced an analyst — you have given them back most of their day. In our own operations, machine-assisted triage closes roughly nine in ten low-value alerts before a human sees them, and cuts median time-to-triage from over an hour to under fifteen minutes.
+Do those three things well and you have not replaced an analyst — you have given them back most of their day. In our own operations, machine-assisted triage closes roughly nine in ten low-value alerts before a human sees them, and cuts median time-to-triage from over an hour to under two minutes.
 
 ## Behavioural analytics: the honest version
 
