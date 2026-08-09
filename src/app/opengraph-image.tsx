@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 // Required for `output: export` — the image is rendered once at build time.
 export const dynamic = "force-static";
 
-export const alt = "DefenseNet Solutions — AI-driven cyber defence for India and the Gulf";
+export const alt = "DefenseNet Solutions — AI-based security for India and the Gulf";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -85,7 +85,7 @@ export default function OpengraphImage() {
           }}
         >
           <div style={{ display: "flex" }}>defensenetsolutions.com</div>
-          <div style={{ display: "flex" }}>Kannur, Kerala · India &amp; the Gulf</div>
+          <div style={{ display: "flex" }}>Kozhikode, Kerala · India &amp; the Gulf</div>
         </div>
       </div>
     ),

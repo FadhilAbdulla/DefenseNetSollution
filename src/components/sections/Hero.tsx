@@ -62,7 +62,7 @@ export function Hero() {
             <div className="anim-fade inline-flex items-center gap-2 rounded-full border border-cyan-signal/25 bg-cyan-signal/[0.07] px-3.5 py-1.5">
               <Sparkles size={13} className="text-cyan-signal" aria-hidden />
               <span className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-cyan-signal">
-                AI-assisted SOC · Live in India & the Gulf
+                AI-Based Security · India & the Gulf
               </span>
             </div>
 

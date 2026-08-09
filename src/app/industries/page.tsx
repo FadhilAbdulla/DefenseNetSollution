@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { industries } from "@/lib/site";
@@ -58,15 +59,18 @@ export default function IndustriesPage() {
         <div className="grid gap-5 md:grid-cols-2">
           {industries.map((industry, i) => (
             <Reveal key={industry.slug} delay={(i % 2) * 70}>
-              <article className="card h-full p-8">
+              <article className="card card-hover h-full p-8">
                 <div className="flex items-start justify-between gap-4">
-                  <h2 className="font-display text-xl font-semibold tracking-tight text-ink">
-                    {industry.name}
-                  </h2>
+                  <span className="grid h-12 w-12 place-items-center rounded-xl border border-cyan-signal/25 bg-cyan-signal/[0.08] text-cyan-signal">
+                    <ServiceIcon name={industry.icon} size={21} />
+                  </span>
                   <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-cyan-signal">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
+                <h2 className="mt-6 font-display text-xl font-semibold tracking-tight text-ink">
+                  {industry.name}
+                </h2>
                 <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">
                   {industry.body}
                 </p>

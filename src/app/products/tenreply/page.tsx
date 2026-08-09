@@ -19,7 +19,7 @@ export const metadata: Metadata = pageMetadata({
 const faqs = [
   {
     q: "Who operates Tenreply?",
-    a: "Tenreply is developed and operated by DefenseNet Solutions, a cybersecurity company headquartered at Baithul Salama, Behind Kadimul School, Thalassery PO, Kannur, Kerala 670101, India. The product is available at tenreply.com.",
+    a: "Tenreply is developed and operated by DefenseNet Solutions, a cybersecurity company headquartered at Phase 2, 2nd Floor, HiLITE Business Park, Poovangal, Pantheeramkavu, Kozhikode, Kerala 673014, India. The product is available at tenreply.com.",
   },
   {
     q: "Is Tenreply an official WhatsApp Business API provider?",
@@ -106,7 +106,7 @@ export default function TenreplyPage() {
               <p>
                 Tenreply is a WhatsApp Business API platform developed and operated by{" "}
                 <strong className="text-ink">DefenseNet Solutions</strong>, a cybersecurity company
-                headquartered in Thalassery, Kannur, Kerala, India. The product is available at{" "}
+                headquartered in Kozhikode, Kerala, India. The product is available at{" "}
                 <a
                   href="https://tenreply.com"
                   target="_blank"
@@ -140,7 +140,7 @@ export default function TenreplyPage() {
                   { k: "Parent company", v: "DefenseNet Solutions" },
                   { k: "Product website", v: "tenreply.com" },
                   { k: "Category", v: "WhatsApp Business API platform" },
-                  { k: "Registered address", v: "Thalassery, Kannur, Kerala 670101, India" },
+                  { k: "Registered address", v: "HiLITE Business Park, Kozhikode, Kerala 673014, India" },
                   { k: "Contact", v: site.contact.email },
                 ].map((row) => (
                   <div key={row.k} className="flex flex-col gap-1 py-3.5 first:pt-0 last:pb-0">

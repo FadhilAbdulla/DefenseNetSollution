@@ -72,25 +72,16 @@ export function Navbar() {
         }`}
       >
         <div className="shell flex h-[var(--nav-h)] items-center justify-between gap-6">
-          <Link
-            href="/"
-            className="group flex shrink-0 items-center gap-2.5"
-            aria-label={`${site.name} home`}
-          >
+          {/* The logo artwork already carries the wordmark, so no text beside it. */}
+          <Link href="/" className="shrink-0" aria-label={`${site.name} home`}>
             <Image
               src="/img/MainLogo.png"
-              alt=""
-              width={36}
-              height={36}
+              alt={site.name}
+              width={1300}
+              height={350}
               priority
-              className="h-9 w-9 object-contain"
+              className="h-8 w-auto sm:h-9"
             />
-            <span className="hidden font-display text-[0.95rem] font-semibold leading-none tracking-tight text-ink sm:block">
-              DefenseNet
-              <span className="ml-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cyan-signal">
-                Solutions
-              </span>
-            </span>
           </Link>
 
           {/* Desktop nav */}

@@ -11,6 +11,14 @@ import {
   Coins,
   Users,
   Globe,
+  Landmark,
+  HeartPulse,
+  Building2,
+  Code2,
+  Factory,
+  GraduationCap,
+  ShoppingCart,
+  Truck,
   type LucideIcon,
 } from "lucide-react";
 
@@ -27,6 +35,15 @@ const registry: Record<string, LucideIcon> = {
   coins: Coins,
   users: Users,
   globe: Globe,
+  // Industries
+  landmark: Landmark,
+  "heart-pulse": HeartPulse,
+  building: Building2,
+  code: Code2,
+  factory: Factory,
+  "graduation-cap": GraduationCap,
+  "shopping-cart": ShoppingCart,
+  truck: Truck,
 };
 
 export function ServiceIcon({

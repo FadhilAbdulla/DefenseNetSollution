@@ -10,9 +10,9 @@ import { coreValues, timeline, metrics, certifications, site, fullAddress } from
 import { pageMetadata, breadcrumbSchema, organizationSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About Us — Cybersecurity Company in Kannur, Kerala",
+  title: "About Us — Cybersecurity Company in Kozhikode, Kerala",
   description:
-    "DefenseNet Solutions is a cybersecurity firm headquartered in Thalassery, Kannur, Kerala. Meet the team, mission and engineering principles behind our AI-assisted SOC.",
+    "DefenseNet Solutions is a cybersecurity firm headquartered at HiLITE Business Park, Kozhikode, Kerala. Meet the team, mission and engineering principles behind our AI-assisted SOC.",
   path: "/about/",
 });
 
@@ -32,7 +32,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About us"
         title="Enterprise-grade defence, built for businesses that were never offered it."
-        lede="DefenseNet Solutions was founded in Thalassery, Kerala on a straightforward premise: the organisations most likely to be ruined by a breach are the ones least likely to be sold real security. We set out to change that."
+        lede="DefenseNet Solutions was founded in Kerala on a straightforward premise: the organisations most likely to be ruined by a breach are the ones least likely to be sold real security. We set out to change that."
         crumbs={[
           { name: "Home", path: "/" },
           { name: "About", path: "/about/" },
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </h2>
             <div className="mt-6 flex flex-col gap-5 text-[1.0625rem] leading-relaxed text-ink-muted">
               <p>
-                We are a cybersecurity services firm headquartered in Thalassery, Kannur, Kerala,
+                We are a cybersecurity services firm headquartered in Kozhikode (Calicut), Kerala,
                 serving clients across India and the Gulf. Our team spans security operations,
                 offensive testing, incident response, cloud security and governance — the full
                 lifecycle, under one roof.

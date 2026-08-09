@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { services, site, fullAddress, whatsappLink } from "@/lib/site";
+import { getAllPosts, getCategories } from "@/lib/blog";
 
 /** lucide-react dropped brand marks, so the LinkedIn glyph lives here. */
 function LinkedInMark({ size = 15 }: { size?: number }) {
@@ -23,7 +24,6 @@ const companyLinks = [
   { label: "About us", href: "/about" },
   { label: "The platform", href: "/platform" },
   { label: "Industries", href: "/industries" },
-  { label: "Insights", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -36,6 +36,8 @@ const legalLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const latestPosts = getAllPosts().slice(0, 3);
+  const topCategories = getCategories().slice(0, 4);
 
   return (
     <footer className="relative mt-auto overflow-hidden border-t border-line bg-base">
@@ -49,27 +51,26 @@ export function Footer() {
       />
 
       <div className="shell relative py-16 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_.85fr_.85fr_1fr_1.15fr]">
           {/* Brand */}
           <div className="max-w-sm">
-            <Link href="/" className="flex items-center gap-2.5" aria-label={`${site.name} home`}>
+            {/* Logo artwork carries the wordmark — no text lockup beside it. */}
+            <Link href="/" className="inline-block" aria-label={`${site.name} home`}>
               <Image
                 src="/img/MainLogo.png"
-                alt=""
-                width={40}
-                height={40}
-                className="h-10 w-10 object-contain"
+                alt={site.name}
+                width={1300}
+                height={350}
+                className="h-11 w-auto"
               />
-              <span className="font-display text-base font-semibold tracking-tight text-ink">
-                DefenseNet
-                <span className="ml-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cyan-signal">
-                  Solutions
-                </span>
-              </span>
             </Link>
 
+            <p className="mt-4 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-cyan-signal">
+              {site.tagline}
+            </p>
+
             <p className="mt-5 text-sm leading-relaxed text-ink-muted">
-              AI-driven cyber defence for businesses across India and the Gulf. Autonomous
+              AI-based security for businesses across India and the Gulf. Autonomous
               detection, expert response, and security engineering that holds up under audit.
             </p>
 
@@ -129,6 +130,52 @@ export function Footer() {
             <FooterLink href="/products/tenreply">Tenreply — WhatsApp API</FooterLink>
           </FooterColumn>
 
+          {/* Blog */}
+          <div>
+            <h3 className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-ink">Blog</h3>
+
+            <ul className="mt-5 flex flex-col gap-3">
+              {latestPosts.map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group block text-sm leading-snug text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
+                  >
+                    <span className="line-clamp-2">{post.title}</span>
+                    <span className="mt-1 block font-mono text-[0.6rem] uppercase tracking-[0.12em] text-ink-muted/70">
+                      {post.readingTime} min · {post.category}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <ul className="mt-5 flex flex-wrap gap-1.5">
+              {topCategories.map((cat) => (
+                <li key={cat.slug}>
+                  <Link
+                    href={`/blog/category/${cat.slug}`}
+                    className="chip px-2.5 py-1 text-[0.6rem] transition-colors hover:border-cyan-signal/40 hover:text-cyan-signal focus-ring"
+                  >
+                    {cat.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href="/blog"
+              className="group mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-cyan-signal focus-ring"
+            >
+              All articles
+              <ArrowUpRight
+                size={13}
+                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                aria-hidden
+              />
+            </Link>
+          </div>
+
           {/* Contact */}
           <FooterColumn title="Get in touch">
             <li className="flex gap-2.5 text-sm text-ink-muted">
@@ -177,7 +224,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-4 text-xs text-ink-muted md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {site.name}. All rights reserved. · Kannur, Kerala, India
+            © {year} {site.name}. All rights reserved. · Kozhikode, Kerala, India
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             {legalLinks.map((l) => (

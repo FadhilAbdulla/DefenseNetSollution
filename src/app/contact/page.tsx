@@ -11,7 +11,7 @@ import { pageMetadata, breadcrumbSchema, localBusinessSchema } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Contact — Talk to a Security Engineer in Kerala",
   description:
-    "Contact DefenseNet Solutions in Thalassery, Kannur, Kerala. Call +91 86603 71224 for 24/7 incident response, or send an enquiry for SOC, VAPT, cloud security and compliance work.",
+    "Contact DefenseNet Solutions at HiLITE Business Park, Kozhikode, Kerala. Call +91 86603 71224 for 24/7 incident response, or send an enquiry for SOC, VAPT, cloud security and compliance work.",
   path: "/contact/",
 });
 
@@ -40,7 +40,7 @@ const channels = [
 ];
 
 const mapQuery = encodeURIComponent(
-  "Thalassery, Kannur, Kerala 670101, India",
+  "HiLITE Business Park, Poovangal, Pantheeramkavu, Kozhikode, Kerala 673014",
 );
 
 export default function ContactPage() {
@@ -179,7 +179,7 @@ export default function ContactPage() {
 
             <div className="card overflow-hidden">
               <iframe
-                title="DefenseNet Solutions office location in Thalassery, Kannur, Kerala"
+                title="DefenseNet Solutions office location at HiLITE Business Park, Kozhikode, Kerala"
                 src={`https://maps.google.com/maps?q=${mapQuery}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

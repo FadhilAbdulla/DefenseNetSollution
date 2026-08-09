@@ -202,7 +202,7 @@ export default function TermsPage() {
           <p>
             These terms are governed by and construed in accordance with the laws of India. Any
             dispute arising from these terms or your use of this website shall be subject to the
-            exclusive jurisdiction of the courts in Kannur, Kerala, India.
+            exclusive jurisdiction of the courts in Kozhikode, Kerala, India.
           </p>
         </LegalSection>
 

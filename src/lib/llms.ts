@@ -15,7 +15,7 @@ export function buildLlmsTxt(): string {
   lines.push(`# ${site.name}`);
   lines.push("");
   lines.push(
-    `> ${site.name} is an AI-driven cybersecurity company headquartered in Thalassery, Kannur, Kerala, India. We provide 24/7 AI-assisted managed SOC, VAPT and red teaming, incident response and digital forensics, cloud security, SIEM and detection engineering, and compliance consulting to businesses across India and the Gulf Cooperation Council.`,
+    `> ${site.name} is an AI-based cybersecurity company headquartered in Kozhikode (Calicut), Kerala, India. We provide 24/7 AI-assisted managed SOC, VAPT and red teaming, incident response and digital forensics, cloud security, SIEM and detection engineering, and compliance consulting to businesses across India and the Gulf Cooperation Council.`,
   );
   lines.push("");
   lines.push(

@@ -1,5 +1,6 @@
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { industries } from "@/lib/site";
 
 export function IndustriesGrid({ limit }: { limit?: number }) {
@@ -17,7 +18,10 @@ export function IndustriesGrid({ limit }: { limit?: number }) {
         {list.map((industry, i) => (
           <Reveal key={industry.slug} delay={(i % 4) * 70}>
             <article className="card card-hover flex h-full flex-col p-6">
-              <h3 className="font-display text-[0.9375rem] font-semibold tracking-tight text-ink">
+              <span className="grid h-11 w-11 place-items-center rounded-xl border border-cyan-signal/25 bg-cyan-signal/[0.08] text-cyan-signal">
+                <ServiceIcon name={industry.icon} size={19} />
+              </span>
+              <h3 className="mt-5 font-display text-[0.9375rem] font-semibold tracking-tight text-ink">
                 {industry.name}
               </h3>
               <p className="mt-3 flex-1 text-[0.8125rem] leading-relaxed text-ink-muted">

@@ -18,6 +18,52 @@ export const metadata: Metadata = pageMetadata({
   path: "/services/",
 });
 
+/** Plain-language entry points — maps a client's own words to a starting service. */
+const situations = [
+  {
+    situation: "We have no idea if anyone is already inside our network.",
+    slug: "managed-soc",
+    label: "Managed SOC",
+    icon: "radar",
+    accent: "cyan" as const,
+  },
+  {
+    situation: "Something is happening right now and we need help immediately.",
+    slug: "incident-response",
+    label: "Incident Response",
+    icon: "shield-alert",
+    accent: "amber" as const,
+  },
+  {
+    situation: "A customer or tender is demanding a penetration test report.",
+    slug: "vapt-penetration-testing",
+    label: "VAPT & Red Teaming",
+    icon: "crosshair",
+    accent: "rose" as const,
+  },
+  {
+    situation: "We moved to the cloud fast and never checked how it was configured.",
+    slug: "cloud-security",
+    label: "Cloud Security",
+    icon: "cloud",
+    accent: "violet" as const,
+  },
+  {
+    situation: "Our SIEM costs a fortune and still misses things.",
+    slug: "siem-engineering",
+    label: "SIEM Engineering",
+    icon: "activity",
+    accent: "emerald" as const,
+  },
+  {
+    situation: "We need ISO 27001 or DPDPA compliance and do not know where to start.",
+    slug: "compliance-consulting",
+    label: "Compliance & vCISO",
+    icon: "scale",
+    accent: "cyan" as const,
+  },
+];
+
 const engagementModels = [
   {
     name: "Managed retainer",
@@ -134,6 +180,45 @@ export default function ServicesPage() {
               </Reveal>
             );
           })}
+        </div>
+      </Section>
+
+      {/* Situation → service decision grid */}
+      <Section className="border-t border-line">
+        <SectionHeading
+          eyebrow="Start here"
+          title="Not sure which one you need?"
+          lede="Find the sentence that sounds most like your situation. That is where we would start, and we will say so even when it is the cheapest option."
+        />
+        <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-line bg-line md:mt-16 md:grid-cols-2">
+          {situations.map((item, i) => (
+            <Reveal key={item.situation} delay={(i % 2) * 70}>
+              <Link
+                href={`/services/${item.slug}`}
+                className="group flex h-full items-start gap-4 bg-base p-7 transition-colors hover:bg-elevated focus-ring"
+              >
+                <span
+                  className={`mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg border ${accentClasses[item.accent].border} ${accentClasses[item.accent].bg} ${accentClasses[item.accent].text}`}
+                >
+                  <ServiceIcon name={item.icon} size={16} />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-[0.9375rem] font-medium leading-snug text-ink">
+                    &ldquo;{item.situation}&rdquo;
+                  </p>
+                  <p className="mt-2 flex items-center gap-1.5 text-[0.8125rem] text-ink-muted">
+                    Start with
+                    <span className="font-medium text-cyan-signal">{item.label}</span>
+                    <ArrowRight
+                      size={13}
+                      className="text-cyan-signal transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden
+                    />
+                  </p>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </Section>
 

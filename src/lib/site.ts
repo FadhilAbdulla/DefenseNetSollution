@@ -9,9 +9,9 @@ export const site = {
   shortName: "DefenseNet",
   legalName: "DefenseNet Solutions",
   url: "https://www.defensenetsolutions.com",
-  tagline: "AI-Driven Cyber Defence",
+  tagline: "AI-Based Security",
   description:
-    "DefenseNet Solutions is an AI-driven cybersecurity company in Kerala, India. Autonomous 24/7 SOC, VAPT, incident response, cloud security and SIEM engineering for businesses across India and the Gulf.",
+    "DefenseNet Solutions is an AI-based cybersecurity company in Kerala, India. Autonomous 24/7 SOC, VAPT, incident response, cloud security and SIEM engineering for businesses across India and the Gulf.",
   founded: "2021",
   locale: "en_IN",
 
@@ -23,19 +23,20 @@ export const site = {
     whatsappMessage:
       "Hi DefenseNet Solutions, I'd like to talk about cybersecurity for my business.",
     address: {
-      line1: "Baithul Salama, Behind Kadimul School",
-      line2: "Thalassery PO, Kannur",
+      line1: "Phase 2, 2nd Floor, HiLITE Business Park",
+      line2: "Poovangal, Pantheeramkavu, Kozhikode",
       region: "Kerala",
-      postalCode: "670101",
+      postalCode: "673014",
       country: "India",
       countryCode: "IN",
+      locality: "Kozhikode",
     },
     hours: [
       { label: "SOC monitoring", value: "24/7 — every day of the year" },
       { label: "Consultations (Mon–Fri)", value: "9:00 AM – 7:00 PM IST" },
       { label: "Consultations (Saturday)", value: "9:00 AM – 2:00 PM IST" },
     ],
-    geo: { lat: 11.7480, lng: 75.4929 },
+    geo: { lat: 11.2350, lng: 75.8380 },
   },
 
   social: {
@@ -120,7 +121,7 @@ export const primaryNav: NavItem[] = [
     ],
   },
   { label: "Industries", href: "/industries" },
-  { label: "Insights", href: "/blog" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ];
 
@@ -148,6 +149,8 @@ export type Service = {
   icon: string;
   accent: "cyan" | "violet" | "emerald" | "amber" | "rose";
   outcomes: string[];
+  /** Engagement lifecycle, rendered as the visual phase diagram. */
+  phases: { name: string; duration: string; body: string }[];
   capabilities: { title: string; body: string }[];
   deliverables: string[];
   stack: string[];
@@ -168,6 +171,28 @@ export const services: Service[] = [
       "Median triage under 2 minutes, around the clock",
       "Up to 90% of low-value alerts closed automatically before a human sees them",
       "One accountable team for detection, investigation and containment",
+    ],
+    phases: [
+      {
+        name: "Scope",
+        duration: "Week 1",
+        body: "Telemetry inventory, asset criticality tiers, escalation contacts and containment authority agreed in writing.",
+      },
+      {
+        name: "Onboard",
+        duration: "Week 1–2",
+        body: "Log sources connected and normalised. Baseline detections deployed. Your estate starts streaming to the SOC.",
+      },
+      {
+        name: "Tune",
+        duration: "Week 3–4",
+        body: "False positives eliminated, behavioural baselines established, playbooks rehearsed against your change process.",
+      },
+      {
+        name: "Operate",
+        duration: "Ongoing",
+        body: "24/7 monitoring with named analysts, monthly detection engineering and quarterly ATT&CK coverage review.",
+      },
     ],
     capabilities: [
       {
@@ -223,6 +248,33 @@ export const services: Service[] = [
       "Proof-of-concept evidence for every critical and high",
       "Free retest of remediated findings within the engagement window",
     ],
+    phases: [
+      {
+        name: "Scope",
+        duration: "Week 0",
+        body: "Targets, rules of engagement, testing windows and stop conditions agreed and authorised in writing.",
+      },
+      {
+        name: "Recon",
+        duration: "Day 1–2",
+        body: "Attack surface mapping, technology fingerprinting and identification of the paths worth spending manual effort on.",
+      },
+      {
+        name: "Exploit",
+        duration: "Day 3–10",
+        body: "Manual exploitation and chaining. Business logic abuse, privilege escalation and lateral movement to prove real impact.",
+      },
+      {
+        name: "Report",
+        duration: "Week 3",
+        body: "Executive summary, evidenced findings, prioritised remediation plan — walked through with your engineers.",
+      },
+      {
+        name: "Retest",
+        duration: "Post-fix",
+        body: "Remediated findings re-tested and an attestation letter issued for auditors and customers.",
+      },
+    ],
     capabilities: [
       {
         title: "Web, mobile & API testing",
@@ -276,6 +328,33 @@ export const services: Service[] = [
       "Containment actions underway within the first hour of engagement",
       "Forensically sound evidence handling for legal and insurance needs",
       "Root-cause report that closes the door permanently, not temporarily",
+    ],
+    phases: [
+      {
+        name: "Mobilise",
+        duration: "Hour 0–1",
+        body: "Bridge opened, evidence preservation instructions issued, isolation begun without destroying forensic artefacts.",
+      },
+      {
+        name: "Contain",
+        duration: "Hour 1–6",
+        body: "Attacker access cut off in a sequenced order, credentials rotated, persistence removed, egress blocked.",
+      },
+      {
+        name: "Investigate",
+        duration: "Day 1–5",
+        body: "Memory and disk forensics, timeline reconstruction, initial access vector and data-impact assessment.",
+      },
+      {
+        name: "Recover",
+        duration: "Day 3–14",
+        body: "Staged restoration onto clean infrastructure, identity layer rebuilt first, monitoring in place before reconnection.",
+      },
+      {
+        name: "Harden",
+        duration: "Week 3+",
+        body: "Root-cause report, control gaps closed with named owners, and new detections deployed for every technique observed.",
+      },
     ],
     capabilities: [
       {
@@ -331,6 +410,28 @@ export const services: Service[] = [
       "Guardrails that block misconfiguration at deploy time, not after",
       "Audit-ready compliance evidence generated continuously",
     ],
+    phases: [
+      {
+        name: "Discover",
+        duration: "Week 1",
+        body: "Read-only access across every account and subscription. Full inventory of resources, identities and data stores.",
+      },
+      {
+        name: "Assess",
+        duration: "Week 2",
+        body: "Configuration reviewed against CIS Benchmarks, effective IAM permissions analysed, exploitable paths identified.",
+      },
+      {
+        name: "Prioritise",
+        duration: "Week 3",
+        body: "Findings ranked by reachability and blast radius, not raw severity, and assigned to named owners with SLAs.",
+      },
+      {
+        name: "Guardrail",
+        duration: "Week 4+",
+        body: "Policy-as-code in CI so the same misconfiguration cannot return, plus continuous drift monitoring.",
+      },
+    ],
     capabilities: [
       {
         title: "Posture assessment & CSPM",
@@ -385,6 +486,28 @@ export const services: Service[] = [
       "Ingest cost reduced by routing low-value telemetry to cheap tiers",
       "False positive rate driven down every single month",
     ],
+    phases: [
+      {
+        name: "Audit",
+        duration: "Week 1",
+        body: "Measure what is ingested, what detections actually reference, and what analysts genuinely search. Cost mapped per source.",
+      },
+      {
+        name: "Design",
+        duration: "Week 2",
+        body: "Normalised schema, tiered storage plan and an ATT&CK coverage target agreed against your real threat profile.",
+      },
+      {
+        name: "Build",
+        duration: "Week 3–6",
+        body: "Detection content written as version-controlled code, peer reviewed and validated with atomic tests before release.",
+      },
+      {
+        name: "Improve",
+        duration: "Ongoing",
+        body: "Monthly tuning cycles, quarterly coverage validation, and continuous reduction of ingest cost without losing signal.",
+      },
+    ],
     capabilities: [
       {
         title: "Log source onboarding",
@@ -438,6 +561,33 @@ export const services: Service[] = [
       "A single control set mapped to every framework you must satisfy",
       "Audit evidence collected continuously instead of in a panic",
       "Security decisions owned by an accountable, senior voice",
+    ],
+    phases: [
+      {
+        name: "Gap",
+        duration: "Month 1",
+        body: "Where you are against every framework that applies, quantified per control with realistic effort estimates.",
+      },
+      {
+        name: "Risk",
+        duration: "Month 2",
+        body: "Asset and process inventory, documented risk methodology, treatment decisions and a Statement of Applicability.",
+      },
+      {
+        name: "Implement",
+        duration: "Month 2–5",
+        body: "Policies written for how you actually operate, plus the technical controls your gap assessment identified.",
+      },
+      {
+        name: "Evidence",
+        duration: "Month 5–6",
+        body: "Controls operating with records collected continuously, so audit preparation is an export rather than a scramble.",
+      },
+      {
+        name: "Audit",
+        duration: "Month 6–7",
+        body: "Internal audit, management review, then Stage 1 and Stage 2 with us alongside you in the room.",
+      },
     ],
     capabilities: [
       {
@@ -559,48 +709,56 @@ export const industries = [
   {
     name: "Banking & Finance",
     slug: "banking-finance",
+    icon: "landmark",
     body: "RBI cybersecurity framework alignment, PCI-DSS 4.0 readiness, transaction fraud analytics and third-party risk for regulated financial institutions.",
     highlights: ["RBI framework", "PCI-DSS 4.0", "Fraud analytics"],
   },
   {
     name: "Healthcare",
     slug: "healthcare",
+    icon: "heart-pulse",
     body: "Patient data protection, ABDM and HIPAA-aligned controls, medical device network segmentation and ransomware resilience for hospitals and diagnostics chains.",
     highlights: ["Patient data", "Device segmentation", "Ransomware resilience"],
   },
   {
     name: "Government & Public Sector",
     slug: "government",
+    icon: "building",
     body: "Critical infrastructure protection, data sovereignty, CERT-In compliance and continuous monitoring for citizen-facing digital services.",
     highlights: ["CERT-In directions", "Data sovereignty", "Critical infrastructure"],
   },
   {
     name: "IT & SaaS",
     slug: "it-technology",
+    icon: "code",
     body: "DevSecOps pipeline integration, API and multi-tenant security, cloud hardening and the security evidence your enterprise customers demand.",
     highlights: ["DevSecOps", "API security", "SOC 2 evidence"],
   },
   {
     name: "Manufacturing & OT",
     slug: "manufacturing",
+    icon: "factory",
     body: "IT/OT convergence risk, ICS and SCADA network visibility, Purdue-model segmentation and production-safe monitoring that never interrupts the line.",
     highlights: ["OT/ICS visibility", "Segmentation", "Safe monitoring"],
   },
   {
     name: "Education",
     slug: "education",
+    icon: "graduation-cap",
     body: "Student data protection, campus network security, phishing resilience for staff and students, and safe research computing environments.",
     highlights: ["Student data", "Campus network", "Phishing defence"],
   },
   {
     name: "Retail & E-commerce",
     slug: "retail-ecommerce",
+    icon: "shopping-cart",
     body: "Payment security, bot and account-takeover defence, digital skimming detection and peak-season readiness for high-traffic storefronts.",
     highlights: ["Payment security", "Bot defence", "Skimming detection"],
   },
   {
     name: "Logistics & Shipping",
     slug: "logistics",
+    icon: "truck",
     body: "Supply chain and partner-network risk, ERP and TMS hardening, and continuity planning for operations that cannot afford downtime.",
     highlights: ["Supply chain risk", "ERP hardening", "Continuity planning"],
   },
@@ -752,7 +910,7 @@ export const coreValues = [
 export const timeline = [
   {
     year: "2021",
-    title: "Founded in Thalassery, Kerala",
+    title: "Founded in Kerala",
     body: "Started with a simple conviction: enterprise-grade security should not be reserved for enterprises.",
   },
   {

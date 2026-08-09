@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { pageMetadata, serviceCatalogSchema, faqSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "AI-Driven Cybersecurity Company in Kerala, India",
+  title: "AI-Based Cybersecurity Company in Kerala, India",
   description:
     "DefenseNet Solutions delivers AI-triaged 24/7 managed SOC, VAPT, incident response, cloud security, SIEM engineering and compliance consulting to businesses across India and the Gulf.",
   path: "/",
@@ -21,7 +21,7 @@ export const metadata: Metadata = pageMetadata({
 const homeFaqs = [
   {
     q: "What does DefenseNet Solutions do?",
-    a: "DefenseNet Solutions is a cybersecurity company headquartered in Thalassery, Kannur, Kerala. We provide AI-assisted 24/7 managed SOC services, vulnerability assessment and penetration testing (VAPT), incident response and digital forensics, cloud security, SIEM and detection engineering, and compliance consulting for ISO 27001, SOC 2, PCI-DSS and India's DPDPA 2023.",
+    a: "DefenseNet Solutions is a cybersecurity company headquartered in Kozhikode (Calicut), Kerala. We provide AI-assisted 24/7 managed SOC services, vulnerability assessment and penetration testing (VAPT), incident response and digital forensics, cloud security, SIEM and detection engineering, and compliance consulting for ISO 27001, SOC 2, PCI-DSS and India's DPDPA 2023.",
   },
   {
     q: "How is AI used in your security operations?",

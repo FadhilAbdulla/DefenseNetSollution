@@ -93,7 +93,7 @@ export const organizationSchema = () => ({
   address: {
     "@type": "PostalAddress",
     streetAddress: `${site.contact.address.line1}, ${site.contact.address.line2}`,
-    addressLocality: "Thalassery",
+    addressLocality: site.contact.address.locality,
     addressRegion: site.contact.address.region,
     postalCode: site.contact.address.postalCode,
     addressCountry: site.contact.address.countryCode,
@@ -117,7 +117,7 @@ export const localBusinessSchema = () => ({
   address: {
     "@type": "PostalAddress",
     streetAddress: `${site.contact.address.line1}, ${site.contact.address.line2}`,
-    addressLocality: "Thalassery",
+    addressLocality: site.contact.address.locality,
     addressRegion: site.contact.address.region,
     postalCode: site.contact.address.postalCode,
     addressCountry: site.contact.address.countryCode,

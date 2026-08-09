@@ -6,6 +6,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { PhaseFlow } from "@/components/ui/PhaseFlow";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { accentClasses } from "@/lib/accent";
@@ -123,6 +124,18 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
               </Reveal>
             ))}
           </div>
+        </div>
+      </Section>
+
+      {/* Engagement lifecycle — visual */}
+      <Section className="border-t border-line">
+        <SectionHeading
+          eyebrow="How it runs"
+          title="The engagement, phase by phase"
+          lede="No open-ended discovery. Each phase has a defined output and a date, agreed before we start."
+        />
+        <div className="mt-14 md:mt-16">
+          <PhaseFlow phases={service.phases} accent={service.accent} />
         </div>
       </Section>
 
