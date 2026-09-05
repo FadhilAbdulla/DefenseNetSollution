@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
-import { services, site, fullAddress, whatsappLink } from "@/lib/site";
+import { services, products, site, fullAddress, whatsappLink } from "@/lib/site";
 import { getAllPosts, getCategories } from "@/lib/blog";
 
 /** lucide-react dropped brand marks, so the LinkedIn glyph lives here. */
@@ -127,7 +127,11 @@ export function Footer() {
                 Products
               </span>
             </li>
-            <FooterLink href="/products/tenreply">Tenreply — WhatsApp API</FooterLink>
+            {products.map((product) => (
+              <FooterLink key={product.slug} href={`/products/${product.slug}`}>
+                {product.name}
+              </FooterLink>
+            ))}
           </FooterColumn>
 
           {/* Blog */}

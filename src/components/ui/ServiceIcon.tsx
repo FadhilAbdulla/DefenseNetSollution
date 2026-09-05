@@ -19,6 +19,8 @@ import {
   GraduationCap,
   ShoppingCart,
   Truck,
+  MessageSquare,
+  Vault,
   type LucideIcon,
 } from "lucide-react";
 
@@ -44,6 +46,9 @@ const registry: Record<string, LucideIcon> = {
   "graduation-cap": GraduationCap,
   "shopping-cart": ShoppingCart,
   truck: Truck,
+  // Products
+  message: MessageSquare,
+  vault: Vault,
 };
 
 export function ServiceIcon({

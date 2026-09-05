@@ -116,6 +116,16 @@ export const primaryNav: NavItem[] = [
     href: "/products",
     children: [
       {
+        label: "Guardian",
+        href: "/products/guardian",
+        description: "Scheduled automated pentesting",
+      },
+      {
+        label: "Red-Vault",
+        href: "/products/red-vault",
+        description: "Corporate password & secrets manager",
+      },
+      {
         label: "Tenreply",
         href: "/products/tenreply",
         description: "WhatsApp Business API platform",
@@ -778,7 +788,17 @@ export type Product = {
   tagline: string;
   summary: string;
   url?: string;
-  accent: "cyan" | "violet" | "emerald";
+  accent: "cyan" | "violet" | "emerald" | "amber" | "rose";
+  icon: string;
+  /** Paragraphs for the "what is it" section on the product page. */
+  intro: string[];
+  /** Key/value rows — also used to satisfy platform identity verification. */
+  identity: { k: string; v: string }[];
+  stats: { value: string; label: string }[];
+  features: { title: string; body: string }[];
+  steps: { title: string; body: string }[];
+  audiences: string[];
+  faqs: { q: string; a: string }[];
 };
 
 export const products: Product[] = [
@@ -789,74 +809,313 @@ export const products: Product[] = [
     status: "live",
     tagline: "Business messaging on WhatsApp, at scale.",
     summary:
-      "An official Meta WhatsApp Business API platform for automated notifications, OTPs, broadcasts and two-way support conversations — with a unified team inbox and REST/webhook integration.",
+      "An official Meta WhatsApp Business API platform for automated notifications, OTPs, broadcasts and two-way support conversations \u2014 with a unified team inbox and REST/webhook integration.",
     url: "https://tenreply.com",
     accent: "emerald",
+    icon: "message",
+    intro: [
+      "Tenreply is a WhatsApp Business API platform developed and operated by DefenseNet Solutions, a cybersecurity company headquartered in Kozhikode, Kerala, India. The product is available at tenreply.com.",
+      "Businesses use Tenreply to reach customers on WhatsApp at scale \u2014 order updates, appointment reminders, OTPs and promotional broadcasts \u2014 and to manage the conversations that come back through a single shared inbox.",
+      "It is built on Meta's official WhatsApp Business Platform, with the same engineering and security standards we apply to every client environment we defend.",
+    ],
+    identity: [
+      { k: "Business name", v: "Tenreply" },
+      { k: "Parent company", v: "DefenseNet Solutions" },
+      { k: "Product website", v: "tenreply.com" },
+      { k: "Category", v: "WhatsApp Business API platform" },
+      { k: "Registered address", v: "HiLITE Business Park, Kozhikode, Kerala 673014, India" },
+    ],
+    stats: [
+      { value: "Meta", label: "Official API partner platform" },
+      { value: "99.9%", label: "Platform uptime target" },
+      { value: "24/7", label: "Support from DefenseNet" },
+    ],
+    features: [
+      {
+        title: "Official WhatsApp Business API",
+        body: "Built directly on Meta's WhatsApp Business Platform \u2014 enterprise throughput, verified sender identity and full policy compliance.",
+      },
+      {
+        title: "Automated message flows",
+        body: "Trigger order confirmations, OTPs, appointment reminders and delivery updates from your own business events, with no manual sending.",
+      },
+      {
+        title: "Unified team inbox",
+        body: "Route inbound replies to the right agent, assign conversations, add internal notes and resolve support threads from one dashboard.",
+      },
+      {
+        title: "Bulk broadcasts",
+        body: "Reach thousands of opted-in customers with personalised, template-approved campaigns \u2014 transactional, promotional or informational.",
+      },
+      {
+        title: "REST API & webhooks",
+        body: "Integrate with your CRM, ERP or e-commerce stack in hours. Send programmatically, receive delivery and read events in real time.",
+      },
+      {
+        title: "Secure by construction",
+        body: "Built by a cybersecurity company: encrypted transport and storage, scoped API credentials, role-based access and full audit logging.",
+      },
+    ],
+    steps: [
+      {
+        title: "Register your business",
+        body: "Sign up on tenreply.com and complete your WhatsApp Business profile \u2014 display name, logo, category and description.",
+      },
+      {
+        title: "Connect your number",
+        body: "Link a business phone number to the WhatsApp Business API through our guided Meta verification flow.",
+      },
+      {
+        title: "Create message templates",
+        body: "Design and submit templates for Meta approval \u2014 transactional alerts, OTPs, service updates and marketing messages.",
+      },
+      {
+        title: "Start messaging",
+        body: "Send from the dashboard or via API, handle replies in the shared inbox, and track delivery and read receipts live.",
+      },
+    ],
+    audiences: [
+      "E-commerce",
+      "Healthcare",
+      "Banking & Finance",
+      "Education",
+      "Hospitality",
+      "Logistics",
+      "Manufacturing",
+      "Professional services",
+    ],
+    faqs: [
+      {
+        q: "Who operates Tenreply?",
+        a: "Tenreply is developed and operated by DefenseNet Solutions, a cybersecurity company headquartered at Phase 2, 2nd Floor, HiLITE Business Park, Poovangal, Pantheeramkavu, Kozhikode, Kerala 673014, India. The product is available at tenreply.com.",
+      },
+      {
+        q: "Is Tenreply an official WhatsApp Business API provider?",
+        a: "Yes. Tenreply is built on Meta's official WhatsApp Business Platform, which means verified sender identity, enterprise message throughput and full compliance with the WhatsApp Business Policy.",
+      },
+      {
+        q: "What can businesses send through Tenreply?",
+        a: "Transactional messages such as order confirmations, delivery updates, appointment reminders and OTPs, plus template-approved marketing broadcasts to customers who have opted in \u2014 and two-way support conversations through a shared team inbox.",
+      },
+      {
+        q: "Can Tenreply integrate with our existing systems?",
+        a: "Yes. Tenreply exposes a REST API and webhooks, so it integrates with CRMs, ERPs and e-commerce platforms. Messages can be triggered directly from your own business events with no manual sending.",
+      },
+    ],
+  },
+
+  {
+    slug: "guardian",
+    name: "Guardian",
+    category: "Continuous Automated Penetration Testing",
+    status: "live",
+    tagline: "Red team tradecraft, running on a schedule.",
+    summary:
+      "Guardian tests your applications the way an attacker would \u2014 authenticated crawling, exploitation chains and business-logic abuse \u2014 on a schedule you set. Every finding is validated before it reaches you, so what lands in your backlog is real.",
+    accent: "rose",
+    icon: "crosshair",
+    intro: [
+      "Guardian is a scheduled offensive-testing platform built by DefenseNet Solutions. It runs against applications your organisation owns, repeatedly, applying the same techniques our red team uses by hand.",
+      "Annual penetration tests leave you blind for the other fifty-one weeks, and your applications ship changes every one of them. Guardian closes that window: it re-tests continuously, so a vulnerability introduced on Tuesday is found on Tuesday rather than at next year's audit.",
+      "It runs only against targets you have explicitly scoped and authorised in writing. Ownership verification is a setup requirement, not an optional step \u2014 Guardian will not test infrastructure you have not proven you control.",
+    ],
+    identity: [
+      { k: "Product name", v: "Guardian" },
+      { k: "Parent company", v: "DefenseNet Solutions" },
+      { k: "Category", v: "Continuous automated penetration testing" },
+      { k: "Deployment", v: "SaaS, or self-hosted appliance in your network" },
+      { k: "Authorisation", v: "Written scope and ownership verification required" },
+    ],
+    stats: [
+      { value: "Weekly", label: "Default scan cadence" },
+      { value: "Validated", label: "Every finding proven exploitable" },
+      { value: "OWASP", label: "ASVS and Top 10 aligned" },
+    ],
+    features: [
+      {
+        title: "Scheduled red team runs",
+        body: "Daily, weekly or per-release. Guardian re-tests on your cadence and reports only what changed since the last run, so you are reading a diff rather than a fresh 200-page report.",
+      },
+      {
+        title: "Authenticated testing",
+        body: "Most real risk sits behind the login. Guardian holds credentials for each role you define and tests the application as each of them \u2014 including what one role can reach that it should not.",
+      },
+      {
+        title: "Exploit validation",
+        body: "Nothing is reported on version numbers alone. Guardian attempts safe, non-destructive exploitation and attaches the request, response and reproduction steps. If it cannot prove it, it does not raise it.",
+      },
+      {
+        title: "Business logic abuse",
+        body: "Broken object-level authorisation, workflow bypass, parameter tampering and race conditions \u2014 the failure classes scanners structurally cannot find, modelled from your own role and workflow definitions.",
+      },
+      {
+        title: "Attack path chaining",
+        body: "Individual findings are ranked, then combined. Guardian shows where three medium issues compose into full account takeover, which is how an attacker would actually use them.",
+      },
+      {
+        title: "CI/CD and ticketing integration",
+        body: "Trigger a run from your pipeline, fail a build on a new critical, and open tickets in Jira or Azure DevOps automatically with owner and severity already set.",
+      },
+    ],
+    steps: [
+      {
+        title: "Scope and authorise",
+        body: "Define target domains and applications, verify ownership, and sign the rules of engagement. Guardian will not run against an unverified target.",
+      },
+      {
+        title: "Provide test credentials",
+        body: "Add a login per user role. Guardian maps the authenticated surface and learns which role should be able to reach what.",
+      },
+      {
+        title: "Set the schedule",
+        body: "Choose cadence and testing windows, exclude any endpoint that must never be touched, and set the destructive-action boundary.",
+      },
+      {
+        title: "Triage validated findings",
+        body: "Receive only proven, ranked findings with evidence and remediation steps. Re-test automatically on the next run to confirm fixes held.",
+      },
+    ],
+    audiences: [
+      "SaaS platforms",
+      "Fintech & lending",
+      "E-commerce",
+      "Healthcare portals",
+      "Banking & Finance",
+      "Government services",
+      "Logistics platforms",
+      "Any team shipping weekly",
+    ],
+    faqs: [
+      {
+        q: "How is this different from a vulnerability scanner?",
+        a: "A scanner reports that a component looks vulnerable. Guardian attempts to exploit it and reports only what it could actually prove, with evidence attached. It also tests authenticated business logic \u2014 broken authorisation, workflow bypass, race conditions \u2014 which signature-based scanners cannot reach at all.",
+      },
+      {
+        q: "Does it replace a manual penetration test?",
+        a: "No, and we will not sell it as one. Guardian covers the repeatable majority continuously, which frees a manual engagement to go deep on architecture, chained logic flaws and areas requiring human creativity. Most regulators and enterprise customers still expect an annual human-led test; Guardian is what keeps the other fifty-one weeks honest.",
+      },
+      {
+        q: "Is it safe to run against production?",
+        a: "Destructive and denial-of-service techniques are excluded by default. You set testing windows, rate limits and an endpoint exclusion list before the first run, and there is a stop control that halts an in-flight run immediately. Many clients still prefer to point it at staging first, and we recommend that for the initial baseline.",
+      },
+      {
+        q: "What stops it being pointed at someone else's systems?",
+        a: "Ownership verification is mandatory at setup \u2014 DNS record, file upload or an equivalent proof per target \u2014 and every run is tied to a signed authorisation naming the scope. Unverified targets cannot be scheduled.",
+      },
+      {
+        q: "Can we self-host it?",
+        a: "Yes. Guardian runs as a SaaS platform or as an appliance inside your own network, which is the usual choice for internal applications and for organisations with data residency requirements.",
+      },
+    ],
+  },
+
+  {
+    slug: "red-vault",
+    name: "Red-Vault",
+    category: "Enterprise Password & Secrets Manager",
+    status: "live",
+    tagline: "Corporate credentials, shared without the spreadsheet.",
+    summary:
+      "An end-to-end encrypted password manager for teams. Store corporate credentials, share them with exactly the right people, revoke access in one click, and keep a complete audit trail of who used what.",
+    accent: "violet",
+    icon: "vault",
+    intro: [
+      "Red-Vault is a corporate password and secrets manager built by DefenseNet Solutions. It exists because of what we keep finding during assessments: shared spreadsheets of passwords, credentials pasted into WhatsApp groups, and admin logins that four people know and nobody rotated after the last resignation.",
+      "It gives teams a single encrypted place to keep credentials, a safe way to share them, and an instant way to take that access back. Every secret is encrypted on your device before it is stored, so the ciphertext is all that ever reaches the server.",
+      "That design is deliberate and it constrains us as much as it protects you: DefenseNet cannot read your vault, and could not produce its contents even if compelled to.",
+    ],
+    identity: [
+      { k: "Product name", v: "Red-Vault" },
+      { k: "Parent company", v: "DefenseNet Solutions" },
+      { k: "Category", v: "Enterprise password and secrets manager" },
+      { k: "Encryption", v: "AES-256-GCM, zero-knowledge architecture" },
+      { k: "Deployment", v: "SaaS, or self-hosted for data residency" },
+    ],
+    stats: [
+      { value: "AES-256", label: "Client-side encryption" },
+      { value: "Zero-knowledge", label: "We cannot read your vault" },
+      { value: "Instant", label: "Access revocation" },
+    ],
+    features: [
+      {
+        title: "Zero-knowledge encryption",
+        body: "Secrets are encrypted and decrypted on your device with keys derived from your master password. The server stores ciphertext only \u2014 we hold no key that could open your vault.",
+      },
+      {
+        title: "Team vaults and granular sharing",
+        body: "Organise credentials by team, project or client, and grant access at the vault or individual item level. People see exactly what their role requires and nothing else.",
+      },
+      {
+        title: "Time-bound and revocable shares",
+        body: "Share a credential with a contractor for the length of an engagement. Access expires automatically, and revocation takes effect immediately rather than waiting for a password change.",
+      },
+      {
+        title: "Complete audit trail",
+        body: "Every view, edit, share and export is logged with user, timestamp and device. When someone leaves, you know precisely which secrets they touched and what needs rotating.",
+      },
+      {
+        title: "Weak and breached credential detection",
+        body: "Continuous checks for reused, weak and publicly breached passwords across the organisation, surfaced as a prioritised remediation list rather than a wall of warnings.",
+      },
+      {
+        title: "SSO, SCIM and break-glass",
+        body: "Provision and deprovision through your identity provider so offboarding is automatic, with a documented emergency access path for when the identity provider itself is unavailable.",
+      },
+    ],
+    steps: [
+      {
+        title: "Create your organisation",
+        body: "Set up the org vault, define teams, and configure your password policy and sharing rules before anyone is invited in.",
+      },
+      {
+        title: "Import existing credentials",
+        body: "Bring in what is already scattered across spreadsheets, browsers and other managers. Red-Vault flags duplicates, weak entries and anything already in a public breach set.",
+      },
+      {
+        title: "Connect identity and invite the team",
+        body: "Wire up SSO and SCIM so joiners and leavers are handled automatically, then invite your teams into the vaults they need.",
+      },
+      {
+        title: "Share, monitor and rotate",
+        body: "Share safely with expiry, watch the audit trail, and act on the rotation queue when a credential is exposed or someone leaves.",
+      },
+    ],
+    audiences: [
+      "IT & DevOps teams",
+      "Managed service providers",
+      "Banking & Finance",
+      "Healthcare",
+      "Legal & professional services",
+      "Agencies with client credentials",
+      "Startups scaling their team",
+      "Any team sharing a password today",
+    ],
+    faqs: [
+      {
+        q: "Can DefenseNet read our passwords?",
+        a: "No. Red-Vault uses a zero-knowledge architecture \u2014 encryption and decryption happen on your device, and the keys are derived from your master password, which never leaves it. We store ciphertext. We could not produce your credentials if we were asked to, which is the point.",
+      },
+      {
+        q: "What happens when an employee leaves?",
+        a: "Deprovisioning through SCIM removes their access immediately. The audit trail then shows exactly which secrets that person accessed, and Red-Vault builds a rotation queue from it \u2014 because revoking access is not the same as the credential being safe.",
+      },
+      {
+        q: "What if someone forgets their master password?",
+        a: "Zero-knowledge means we cannot reset it for them. Recovery works through organisation-controlled mechanisms you configure in advance: administrator-assisted recovery keys and a documented break-glass process. This must be set up before it is needed, and onboarding walks you through it.",
+      },
+      {
+        q: "Does it store more than passwords?",
+        a: "Yes \u2014 API keys, certificates, SSH keys, database connection strings, secure notes and documents. Machine secrets can be retrieved programmatically through scoped service credentials rather than being pasted into environment files.",
+      },
+      {
+        q: "Can we host it ourselves?",
+        a: "Yes. Red-Vault is available as SaaS or self-hosted, which is the usual choice for organisations with data residency obligations under DPDPA or sector regulation.",
+      },
+    ],
   },
 ];
 
-export const tenreply = {
-  ...products[0],
-  features: [
-    {
-      title: "Official WhatsApp Business API",
-      body: "Built directly on Meta's WhatsApp Business Platform — enterprise throughput, verified sender identity and full policy compliance.",
-    },
-    {
-      title: "Automated message flows",
-      body: "Trigger order confirmations, OTPs, appointment reminders and delivery updates from your own business events, with no manual sending.",
-    },
-    {
-      title: "Unified team inbox",
-      body: "Route inbound replies to the right agent, assign conversations, add internal notes and resolve support threads from one dashboard.",
-    },
-    {
-      title: "Bulk broadcasts",
-      body: "Reach thousands of opted-in customers with personalised, template-approved campaigns — transactional, promotional or informational.",
-    },
-    {
-      title: "REST API & webhooks",
-      body: "Integrate with your CRM, ERP or e-commerce stack in hours. Send programmatically, receive delivery and read events in real time.",
-    },
-    {
-      title: "Secure by construction",
-      body: "Built by a cybersecurity company: encrypted transport and storage, scoped API credentials, role-based access and full audit logging.",
-    },
-  ],
-  steps: [
-    {
-      title: "Register your business",
-      body: "Sign up on tenreply.com and complete your WhatsApp Business profile — display name, logo, category and description.",
-    },
-    {
-      title: "Connect your number",
-      body: "Link a business phone number to the WhatsApp Business API through our guided Meta verification flow.",
-    },
-    {
-      title: "Create message templates",
-      body: "Design and submit templates for Meta approval — transactional alerts, OTPs, service updates and marketing messages.",
-    },
-    {
-      title: "Start messaging",
-      body: "Send from the dashboard or via API, handle replies in the shared inbox, and track delivery and read receipts live.",
-    },
-  ],
-  stats: [
-    { value: "Meta", label: "Official API partner platform" },
-    { value: "99.9%", label: "Platform uptime target" },
-    { value: "24/7", label: "Support from DefenseNet" },
-  ],
-  audiences: [
-    "E-commerce",
-    "Healthcare",
-    "Banking & Finance",
-    "Education",
-    "Hospitality",
-    "Logistics",
-    "Manufacturing",
-    "Professional services",
-  ],
-};
+export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
 
 /* ------------------------------------------------------------------ */
 /* Testimonials                                                        */

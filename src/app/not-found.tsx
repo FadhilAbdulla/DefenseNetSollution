@@ -6,7 +6,7 @@ const suggestions = [
   { label: "Cybersecurity services", href: "/services" },
   { label: "The DefenseNet platform", href: "/platform" },
   { label: "Insights & threat briefings", href: "/blog" },
-  { label: "Tenreply — WhatsApp API", href: "/products/tenreply" },
+  { label: "Products", href: "/products" },
   { label: "Contact us", href: "/contact" },
 ];
 

@@ -1,4 +1,4 @@
-import { site, services, industries, products, tenreply, fullAddress } from "./site";
+import { site, services, industries, products, fullAddress } from "./site";
 import { getAllPosts, getCategories, formatDate } from "./blog";
 import { absoluteUrl } from "./seo";
 
@@ -19,7 +19,7 @@ export function buildLlmsTxt(): string {
   );
   lines.push("");
   lines.push(
-    "Founded in 2021. Machine learning handles alert enrichment, correlation and triage at volume; certified analysts (OSCP, CISSP, CEH) own every containment decision and client escalation. We also build products — currently Tenreply, an official WhatsApp Business API platform.",
+    "Founded in 2021. Machine learning handles alert enrichment, correlation and triage at volume; certified analysts (OSCP, CISSP, CEH) own every containment decision and client escalation. We also build products: Guardian (scheduled automated penetration testing), Red-Vault (corporate password and secrets manager) and Tenreply (official WhatsApp Business API platform).",
   );
   lines.push("");
   lines.push(`- Website: ${site.url}`);
