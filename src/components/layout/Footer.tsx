@@ -229,6 +229,17 @@ export function Footer() {
         <div className="flex flex-col gap-4 text-xs text-ink-muted md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {site.name}. All rights reserved. · Kozhikode, Kerala, India
+            <span className="mt-1 block">
+              Developed and maintained by{" "}
+              <a
+                href="https://pyalm.com"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-ink transition-colors hover:text-cyan-signal focus-ring"
+              >
+                Pyalm Labs
+              </a>
+            </span>
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             {legalLinks.map((l) => (
