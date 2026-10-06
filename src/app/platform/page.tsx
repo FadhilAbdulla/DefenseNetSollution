@@ -190,7 +190,7 @@ export default function PlatformPage() {
                     <th
                       key={h}
                       scope="col"
-                      className="px-6 py-4 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-ink-muted"
+                      className="px-6 py-4 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-ink-muted"
                     >
                       {h}
                     </th>
@@ -278,7 +278,7 @@ export default function PlatformPage() {
             </p>
             <Link
               href="/services/siem-engineering"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-cyan-signal focus-ring"
+              className="group mt-6 inline-flex items-center gap-2 py-2 text-sm font-medium text-cyan-signal focus-ring"
             >
               How we engineer detections
               <ArrowRight
@@ -293,7 +293,7 @@ export default function PlatformPage() {
             <div className="card p-8">
               <div className="flex items-center gap-2.5">
                 <Cpu size={16} className="text-cyan-signal" aria-hidden />
-                <span className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-ink">
+                <span className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-ink">
                   Tactic coverage snapshot
                 </span>
               </div>
@@ -320,7 +320,7 @@ export default function PlatformPage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-7 border-t border-line pt-5 font-mono text-[0.62rem] leading-relaxed text-ink-muted">
+              <p className="mt-7 border-t border-line pt-5 font-mono text-[0.6875rem] leading-relaxed text-ink-muted">
                 Illustrative baseline for a typical mid-market estate after 90 days of detection
                 engineering. Your map is built from your own telemetry.
               </p>

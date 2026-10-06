@@ -74,7 +74,7 @@ export function ProductsTeaser() {
                       <dd className={`font-display text-sm font-semibold ${accent.text}`}>
                         {stat.value}
                       </dd>
-                      <p className="mt-1 font-mono text-[0.52rem] uppercase leading-tight tracking-[0.1em] text-ink-muted">
+                      <p className="mt-1 font-mono text-[0.6875rem] uppercase leading-tight tracking-[0.1em] text-ink-muted">
                         {stat.label}
                       </p>
                     </div>

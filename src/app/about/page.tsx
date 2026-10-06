@@ -81,7 +81,7 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-10">
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted">
+              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-muted">
                 Team certifications
               </p>
               <ul className="mt-4 flex flex-wrap gap-2">
@@ -103,7 +103,7 @@ export default function AboutPage() {
                     {metric.value}
                   </p>
                   <p className="mt-2 text-sm font-medium text-ink">{metric.label}</p>
-                  <p className="mt-0.5 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-ink-muted">
+                  <p className="mt-0.5 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-muted">
                     {metric.detail}
                   </p>
                 </div>
@@ -111,20 +111,20 @@ export default function AboutPage() {
             </div>
 
             <div className="card mt-5 p-7">
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cyan-signal">
+              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-cyan-signal">
                 Headquarters
               </p>
               <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">{fullAddress}</p>
-              <div className="mt-5 flex flex-col gap-2 text-sm">
+              <div className="mt-4 flex flex-col text-sm">
                 <a
                   href={`mailto:${site.contact.email}`}
-                  className="text-cyan-signal hover:underline focus-ring"
+                  className="break-all py-2 text-cyan-signal hover:underline focus-ring"
                 >
                   {site.contact.email}
                 </a>
                 <a
                   href={`tel:${site.contact.phoneHref}`}
-                  className="font-mono text-ink-muted hover:text-ink focus-ring"
+                  className="py-2 font-mono text-ink-muted hover:text-ink focus-ring"
                 >
                   {site.contact.phone}
                 </a>
@@ -195,7 +195,7 @@ export default function AboutPage() {
                 ) : null}
               </div>
               <div className="pb-10">
-                <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted">
+                <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-muted">
                   {entry.year}
                 </p>
                 <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-ink">

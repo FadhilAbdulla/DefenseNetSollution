@@ -42,7 +42,7 @@ export function ServicesGrid({
                 </div>
 
                 <p
-                  className={`mt-6 font-mono text-[0.62rem] uppercase tracking-[0.2em] ${accent.text}`}
+                  className={`mt-6 font-mono text-[0.6875rem] uppercase tracking-[0.2em] ${accent.text}`}
                 >
                   {service.eyebrow}
                 </p>

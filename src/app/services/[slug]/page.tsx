@@ -117,7 +117,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
           <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
             {service.outcomes.map((outcome, i) => (
               <Reveal key={outcome} delay={i * 80} className="bg-base p-7">
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-cyan-signal">
+                <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-cyan-signal">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink">{outcome}</p>

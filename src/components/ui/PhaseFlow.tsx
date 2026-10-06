@@ -51,7 +51,7 @@ export function PhaseFlow({ phases, accent = "cyan" }: { phases: Phase[]; accent
                   {phase.name}
                 </h3>
                 <span
-                  className={`font-mono text-[0.6rem] uppercase tracking-[0.14em] ${tone.text}`}
+                  className={`font-mono text-[0.6875rem] uppercase tracking-[0.14em] ${tone.text}`}
                 >
                   {phase.duration}
                 </span>

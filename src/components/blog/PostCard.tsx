@@ -33,7 +33,7 @@ export function PostCard({ post, compact = false }: { post: Post; compact?: bool
           <div className="flex-1" />
         )}
 
-        <div className="mt-6 flex items-center gap-3 border-t border-line pt-4 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-ink-muted">
+        <div className="mt-6 flex items-center gap-3 border-t border-line pt-4 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-muted">
           <time dateTime={post.date}>{formatDate(post.date)}</time>
           <span className="h-1 w-1 rounded-full bg-line" aria-hidden />
           <span className="flex items-center gap-1.5">

@@ -12,7 +12,7 @@ export function Testimonials() {
         align="center"
       />
 
-      <div className="mt-14 grid gap-5 md:mt-16 lg:grid-cols-3">
+      <div className="mt-14 grid grid-cols-1 gap-5 md:mt-16 lg:grid-cols-3">
         {testimonials.map((t, i) => (
           <Reveal key={t.name} delay={i * 90}>
             <figure className="card flex h-full flex-col p-7">
@@ -29,7 +29,7 @@ export function Testimonials() {
                 </span>
                 <span className="min-w-0">
                   <span className="block truncate text-sm font-medium text-ink">{t.name}</span>
-                  <span className="block truncate font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink-muted">
+                  <span className="block truncate font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-muted">
                     {t.role} · {t.org}
                   </span>
                 </span>

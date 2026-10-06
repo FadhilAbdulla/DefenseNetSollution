@@ -112,7 +112,7 @@ export default function ContactPage() {
                 <span className="grid h-10 w-10 place-items-center rounded-lg border border-cyan-signal/25 bg-cyan-signal/10 text-cyan-signal">
                   <channel.icon size={17} aria-hidden />
                 </span>
-                <p className="mt-5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink-muted">
+                <p className="mt-5 font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-muted">
                   {channel.label}
                 </p>
                 <p className="mt-2 break-words text-[0.9375rem] font-medium text-ink">
@@ -155,7 +155,7 @@ export default function ContactPage() {
                 href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="mt-4 inline-block text-sm text-cyan-signal hover:underline focus-ring"
+                className="mt-2 inline-block py-2 text-sm text-cyan-signal hover:underline focus-ring"
               >
                 Open in Google Maps
               </a>
@@ -168,7 +168,7 @@ export default function ContactPage() {
               <dl className="mt-5 flex flex-col gap-4">
                 {site.contact.hours.map((slot) => (
                   <div key={slot.label} className="border-b border-line pb-4 last:border-0 last:pb-0">
-                    <dt className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-ink-muted">
+                    <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-ink-muted">
                       {slot.label}
                     </dt>
                     <dd className="mt-1.5 text-[0.875rem] text-ink">{slot.value}</dd>

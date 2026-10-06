@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Clock, Calendar, Tag } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, Clock, Calendar, Tag } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
         <div className="shell relative max-w-4xl">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
+            className="-my-2 flex w-fit items-center gap-2 py-2 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
           >
             <ArrowLeft size={12} aria-hidden />
             All insights
@@ -111,12 +111,38 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
       {/* Body */}
       <Section className="!pt-14">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-16">
+          {/* The sidebar contents list is desktop-only; long articles need one on phones too. */}
+          {post.headings.length > 2 ? (
+            <details className="card group -mb-4 lg:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-muted focus-ring [&::-webkit-details-marker]:hidden">
+                On this page
+                <ChevronDown
+                  size={15}
+                  className="transition-transform duration-300 group-open:rotate-180"
+                  aria-hidden
+                />
+              </summary>
+              <ul className="flex flex-col border-t border-line px-5 py-2">
+                {post.headings.map((h) => (
+                  <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>
+                    <a
+                      href={`#${h.id}`}
+                      className="block py-2.5 text-sm leading-snug text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
+                    >
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ) : null}
+
           <article className="prose-dn min-w-0" dangerouslySetInnerHTML={{ __html: post.html }} />
 
           <aside className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)] lg:h-fit">
             {post.headings.length > 2 ? (
               <nav aria-label="On this page" className="hidden lg:block">
-                <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink-muted">
+                <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-muted">
                   On this page
                 </p>
                 <ul className="mt-4 flex flex-col gap-2.5 border-l border-line pl-4">
@@ -135,7 +161,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             ) : null}
 
             <div className="card mt-8 p-6 lg:mt-10">
-              <p className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-cyan-signal">
+              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-cyan-signal">
                 Need help with this?
               </p>
               <p className="mt-3 text-[0.8125rem] leading-relaxed text-ink-muted">
@@ -150,7 +176,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
 
             {post.tags.length ? (
               <div className="mt-6">
-                <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ink-muted">
+                <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-muted">
                   Tags
                 </p>
                 <ul className="mt-3 flex flex-wrap gap-1.5">

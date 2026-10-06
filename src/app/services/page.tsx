@@ -134,7 +134,7 @@ export default function ServicesPage() {
                         <ServiceIcon name={service.icon} size={19} />
                       </span>
                       <span
-                        className={`font-mono text-[0.62rem] uppercase tracking-[0.2em] ${accent.text}`}
+                        className={`font-mono text-[0.6875rem] uppercase tracking-[0.2em] ${accent.text}`}
                       >
                         {service.eyebrow}
                       </span>
@@ -158,7 +158,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="rounded-xl border border-line bg-void/40 p-6">
-                    <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-ink-muted">
+                    <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-ink-muted">
                       What you get
                     </p>
                     <ul className="mt-4 flex flex-col gap-3">

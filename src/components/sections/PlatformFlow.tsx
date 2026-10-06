@@ -55,7 +55,7 @@ export function PlatformFlow() {
       <Reveal className="mt-10">
         <Link
           href="/platform"
-          className="group inline-flex items-center gap-2 text-sm font-medium text-cyan-signal focus-ring"
+          className="group -my-2 inline-flex items-center gap-2 py-2 text-sm font-medium text-cyan-signal focus-ring"
         >
           Explore the full architecture
           <ArrowRight

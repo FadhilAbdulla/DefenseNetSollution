@@ -106,7 +106,7 @@ export default function BlogIndexPage() {
 
               <div className="flex flex-col justify-end gap-4 border-t border-line pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                 <div>
-                  <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-muted">
+                  <p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-ink-muted">
                     Published
                   </p>
                   <p className="mt-1.5 text-sm text-ink">
@@ -114,7 +114,7 @@ export default function BlogIndexPage() {
                   </p>
                 </div>
                 <div>
-                  <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-muted">
+                  <p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-ink-muted">
                     Read time
                   </p>
                   <p className="mt-1.5 flex items-center gap-1.5 text-sm text-ink">

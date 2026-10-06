@@ -75,7 +75,7 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="card flex flex-col items-start p-8 lg:p-10">
+      <div className="card flex flex-col items-start p-5 sm:p-8 lg:p-10">
         <span className="grid h-12 w-12 place-items-center rounded-xl border border-emerald-signal/30 bg-emerald-signal/10 text-emerald-signal">
           <CircleCheck size={22} aria-hidden />
         </span>
@@ -105,7 +105,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card p-8 lg:p-10" noValidate={false}>
+    <form onSubmit={handleSubmit} className="card p-5 sm:p-8 lg:p-10" noValidate={false}>
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full name" name="name" required autoComplete="name" />
         <Field label="Company" name="company" autoComplete="organization" />
@@ -132,7 +132,7 @@ export function ContactForm() {
         </Select>
 
         <div className="sm:col-span-2">
-          <Field label="Subject" name="subject" required />
+          <Field label="Subject" name="subject" />
         </div>
 
         <div className="sm:col-span-2">
@@ -145,7 +145,7 @@ export function ContactForm() {
             rows={5}
             required
             placeholder="Tell us about your environment, what prompted the enquiry, and any deadlines you are working to."
-            className="mt-2 w-full resize-y rounded-lg border border-line bg-void/60 px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 focus:border-cyan-signal/50 focus:outline-none focus:ring-1 focus:ring-cyan-signal/40"
+            className="mt-2 w-full resize-y rounded-lg border border-line bg-void/60 px-4 py-3 text-base text-ink placeholder:text-ink-muted/60 sm:text-sm focus:border-cyan-signal/50 focus:outline-none focus:ring-1 focus:ring-cyan-signal/40"
           />
         </div>
       </div>
@@ -197,7 +197,7 @@ export function ContactForm() {
         )}
       </button>
 
-      <p className="mt-4 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-ink-muted">
+      <p className="mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-muted">
         Typical reply within one business day
       </p>
     </form>
@@ -207,7 +207,7 @@ export function ContactForm() {
 /* ------------------------------------------------------------------ */
 
 const fieldClass =
-  "mt-2 w-full rounded-lg border border-line bg-void/60 px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 focus:border-cyan-signal/50 focus:outline-none focus:ring-1 focus:ring-cyan-signal/40";
+  "mt-2 w-full rounded-lg border border-line bg-void/60 px-4 py-3 text-base text-ink placeholder:text-ink-muted/60 sm:text-sm focus:border-cyan-signal/50 focus:outline-none focus:ring-1 focus:ring-cyan-signal/40";
 
 function Field({
   label,

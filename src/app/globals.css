@@ -456,6 +456,12 @@ body {
   opacity: 1;
   color: var(--color-cyan-signal);
 }
+/* Touch screens have no hover, so keep the anchor faintly visible. */
+@media (hover: none) {
+  .prose-dn .heading-anchor {
+    opacity: 0.6;
+  }
+}
 
 /* ============================================================
    Animations

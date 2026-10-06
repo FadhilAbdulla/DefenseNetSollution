@@ -56,12 +56,12 @@ export function Hero() {
       <Glow className="-top-20 right-[2%] h-[30rem] w-[34rem]" color="violet" />
 
       <div className="shell relative">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           {/* Copy */}
           <div>
             <div className="anim-fade inline-flex items-center gap-2 rounded-full border border-cyan-signal/25 bg-cyan-signal/[0.07] px-3.5 py-1.5">
               <Sparkles size={13} className="text-cyan-signal" aria-hidden />
-              <span className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-cyan-signal">
+              <span className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-cyan-signal">
                 AI-Based Security · India & the Gulf
               </span>
             </div>
@@ -129,7 +129,7 @@ export function Hero() {
                     DefenseNet SOC · live
                   </span>
                 </div>
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-ink-muted">
+                <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-ink-muted">
                   IST 04:14
                 </span>
               </div>
@@ -153,16 +153,16 @@ export function Hero() {
                           <p className="truncate text-[0.8125rem] font-medium text-ink">
                             {event.label}
                           </p>
-                          <span className="shrink-0 font-mono text-[0.6rem] text-ink-muted">
+                          <span className="shrink-0 font-mono text-[0.6875rem] text-ink-muted">
                             {event.time}
                           </span>
                         </div>
-                        <p className="mt-0.5 truncate font-mono text-[0.66rem] text-ink-muted">
+                        <p className="mt-0.5 truncate font-mono text-[0.6875rem] text-ink-muted">
                           {event.detail}
                         </p>
                       </div>
                       <span
-                        className={`shrink-0 rounded-md px-2 py-0.5 font-mono text-[0.58rem] uppercase tracking-[0.12em] ${tone.bg} ${tone.text}`}
+                        className={`shrink-0 rounded-md px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[0.12em] ${tone.bg} ${tone.text}`}
                       >
                         {event.verdict}
                       </span>
@@ -179,7 +179,7 @@ export function Hero() {
                   { k: "Median triage", v: "1m 48s" },
                 ].map((stat) => (
                   <div key={stat.k} className="px-4 py-3.5">
-                    <p className="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-ink-muted">
+                    <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-muted">
                       {stat.k}
                     </p>
                     <p className="mt-1 font-display text-base font-semibold text-ink">{stat.v}</p>
@@ -202,7 +202,7 @@ export function Hero() {
                 {metric.value}
               </p>
               <p className="mt-1.5 text-sm font-medium text-ink">{metric.label}</p>
-              <p className="mt-0.5 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-ink-muted">
+              <p className="mt-0.5 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-muted">
                 {metric.detail}
               </p>
             </div>

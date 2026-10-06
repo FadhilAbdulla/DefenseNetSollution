@@ -64,7 +64,7 @@ export default function IndustriesPage() {
                   <span className="grid h-12 w-12 place-items-center rounded-xl border border-cyan-signal/25 bg-cyan-signal/[0.08] text-cyan-signal">
                     <ServiceIcon name={industry.icon} size={21} />
                   </span>
-                  <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-cyan-signal">
+                  <span className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-cyan-signal">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export default function IndustriesPage() {
               <h3 className="font-display text-[0.9375rem] font-semibold leading-snug tracking-tight text-ink">
                 {reg.name}
               </h3>
-              <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-ink-muted">
+              <p className="mt-2 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-muted">
                 {reg.sector}
               </p>
             </Reveal>
@@ -108,7 +108,7 @@ export default function IndustriesPage() {
         <Reveal className="mt-10">
           <Link
             href="/services/compliance-consulting"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-cyan-signal focus-ring"
+            className="group -my-2 inline-flex items-center gap-2 py-2 text-sm font-medium text-cyan-signal focus-ring"
           >
             Compliance &amp; vCISO services
             <ArrowRight

@@ -13,6 +13,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const drawerNav = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -26,6 +27,11 @@ export function Navbar() {
     setMobileOpen(false);
     setOpenMenu(null);
   }, [pathname]);
+
+  // Move focus into the drawer so keyboard and screen-reader users land in it.
+  useEffect(() => {
+    if (mobileOpen) drawerNav.current?.querySelector("a")?.focus();
+  }, [mobileOpen]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -171,6 +177,14 @@ export function Navbar() {
             <Link href="/contact" className="btn btn-primary hidden text-[0.8125rem] sm:inline-flex">
               Book an assessment
             </Link>
+            {/* Phones lose the header CTA, so keep the incident line one tap away. */}
+            <a
+              href={`tel:${site.contact.phoneHref}`}
+              aria-label={`Call ${site.contact.phone}`}
+              className="grid h-10 w-10 place-items-center rounded-lg border border-cyan-signal/30 bg-cyan-signal/10 text-cyan-signal transition-colors hover:border-cyan-signal/60 sm:hidden focus-ring"
+            >
+              <Phone size={17} aria-hidden />
+            </a>
 
             <button
               type="button"
@@ -189,6 +203,7 @@ export function Navbar() {
       <div
         className={`fixed inset-0 z-40 lg:hidden ${mobileOpen ? "" : "pointer-events-none"}`}
         aria-hidden={!mobileOpen}
+        inert={!mobileOpen}
       >
         <div
           onClick={() => setMobileOpen(false)}
@@ -201,27 +216,16 @@ export function Navbar() {
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex h-[var(--nav-h)] shrink-0 items-center justify-between border-b border-line px-5">
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-ink-muted">
-              Navigation
-            </span>
-            <button
-              type="button"
-              onClick={() => setMobileOpen(false)}
-              aria-label="Close menu"
-              className="grid h-9 w-9 place-items-center rounded-lg border border-line text-ink focus-ring"
-            >
-              <X size={17} aria-hidden />
-            </button>
-          </div>
+          {/* The fixed header (and its close button) sits over this strip. */}
+          <div className="h-[var(--nav-h)] shrink-0 border-b border-line" aria-hidden />
 
-          <nav className="flex-1 overflow-y-auto px-5 py-6" aria-label="Mobile">
+          <nav ref={drawerNav} className="flex-1 overflow-y-auto px-5 py-6" aria-label="Mobile">
             <ul className="flex flex-col gap-1">
               {primaryNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`block rounded-lg px-3 py-2.5 font-display text-base font-medium transition-colors ${
+                    className={`block rounded-lg px-3 py-3 font-display text-base font-medium transition-colors ${
                       isActive(item.href) ? "text-cyan-signal" : "text-ink"
                     }`}
                   >
@@ -233,7 +237,7 @@ export function Navbar() {
                         <li key={child.href}>
                           <Link
                             href={child.href}
-                            className="block rounded-md px-2 py-2 text-sm text-ink-muted transition-colors hover:text-cyan-signal"
+                            className="block rounded-md px-2 py-2.5 text-sm text-ink-muted transition-colors hover:text-cyan-signal"
                           >
                             {child.label}
                           </Link>

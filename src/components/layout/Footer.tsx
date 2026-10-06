@@ -123,7 +123,7 @@ export function Footer() {
               </FooterLink>
             ))}
             <li className="pt-2">
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-muted">
+              <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-muted">
                 Products
               </span>
             </li>
@@ -136,7 +136,7 @@ export function Footer() {
 
           {/* Blog */}
           <div>
-            <h3 className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-ink">Blog</h3>
+            <h3 className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink">Blog</h3>
 
             <ul className="mt-5 flex flex-col gap-3">
               {latestPosts.map((post) => (
@@ -146,7 +146,7 @@ export function Footer() {
                     className="group block text-sm leading-snug text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
                   >
                     <span className="line-clamp-2">{post.title}</span>
-                    <span className="mt-1 block font-mono text-[0.6rem] uppercase tracking-[0.12em] text-ink-muted/70">
+                    <span className="mt-1 block font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-muted/70">
                       {post.readingTime} min · {post.category}
                     </span>
                   </Link>
@@ -159,7 +159,7 @@ export function Footer() {
                 <li key={cat.slug}>
                   <Link
                     href={`/blog/category/${cat.slug}`}
-                    className="chip px-2.5 py-1 text-[0.6rem] transition-colors hover:border-cyan-signal/40 hover:text-cyan-signal focus-ring"
+                    className="chip px-2.5 py-1.5 text-[0.6875rem] transition-colors hover:border-cyan-signal/40 hover:text-cyan-signal focus-ring"
                   >
                     {cat.name}
                   </Link>
@@ -169,7 +169,7 @@ export function Footer() {
 
             <Link
               href="/blog"
-              className="group mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-cyan-signal focus-ring"
+              className="group mt-3 inline-flex items-center gap-1.5 py-2 text-sm font-medium text-cyan-signal focus-ring"
             >
               All articles
               <ArrowUpRight
@@ -182,14 +182,14 @@ export function Footer() {
 
           {/* Contact */}
           <FooterColumn title="Get in touch">
-            <li className="flex gap-2.5 text-sm text-ink-muted">
+            <li className="flex gap-2.5 py-1.5 text-sm text-ink-muted">
               <MapPin size={15} className="mt-0.5 shrink-0 text-cyan-signal" aria-hidden />
               <span className="leading-relaxed">{fullAddress}</span>
             </li>
             <li>
               <a
                 href={`mailto:${site.contact.email}`}
-                className="flex items-center gap-2.5 text-sm text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
+                className="flex items-center gap-2.5 py-1.5 text-sm text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
               >
                 <Mail size={15} className="shrink-0 text-cyan-signal" aria-hidden />
                 {site.contact.email}
@@ -198,7 +198,7 @@ export function Footer() {
             <li>
               <a
                 href={`tel:${site.contact.phoneHref}`}
-                className="flex items-center gap-2.5 text-sm text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
+                className="flex items-center gap-2.5 py-1.5 text-sm text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
               >
                 <Phone size={15} className="shrink-0 text-cyan-signal" aria-hidden />
                 {site.contact.phone}
@@ -206,7 +206,7 @@ export function Footer() {
             </li>
             <li className="pt-3">
               <div className="rounded-lg border border-rose-signal/25 bg-rose-signal/[0.06] p-3">
-                <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-rose-signal">
+                <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-rose-signal">
                   Active incident?
                 </p>
                 <p className="mt-1.5 text-xs leading-relaxed text-ink-muted">
@@ -235,16 +235,16 @@ export function Footer() {
                 href="https://pyalm.com"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="text-ink transition-colors hover:text-cyan-signal focus-ring"
+                className="inline-block py-1 text-ink transition-colors hover:text-cyan-signal focus-ring"
               >
                 Pyalm Labs
               </a>
             </span>
           </p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          <ul className="flex flex-wrap gap-x-5">
             {legalLinks.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="transition-colors hover:text-cyan-signal focus-ring">
+                <Link href={l.href} className="inline-block py-2 transition-colors hover:text-cyan-signal focus-ring">
                   {l.label}
                 </Link>
               </li>
@@ -259,8 +259,8 @@ export function Footer() {
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-ink">{title}</h3>
-      <ul className="mt-5 flex flex-col gap-3">{children}</ul>
+      <h3 className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink">{title}</h3>
+      <ul className="mt-4 flex flex-col gap-1">{children}</ul>
     </div>
   );
 }
@@ -270,7 +270,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
     <li>
       <Link
         href={href}
-        className="text-sm text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
+        className="block py-1.5 text-sm text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
       >
         {children}
       </Link>

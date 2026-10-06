@@ -124,7 +124,7 @@ export default function ProductsPage() {
                           key={stat.label}
                           className="flex items-center justify-between gap-4 bg-base px-5 py-4"
                         >
-                          <dt className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-ink-muted">
+                          <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-muted">
                             {stat.label}
                           </dt>
                           <dd className={`text-right text-[0.8125rem] font-semibold ${accent.text}`}>

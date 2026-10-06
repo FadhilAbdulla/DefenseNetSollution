@@ -126,7 +126,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
                 >
                   <ServiceIcon name={product.icon} size={19} />
                 </span>
-                <p className={`font-mono text-[0.62rem] uppercase tracking-[0.2em] ${accent.text}`}>
+                <p className={`font-mono text-[0.6875rem] uppercase tracking-[0.2em] ${accent.text}`}>
                   Product identity
                 </p>
               </div>
@@ -134,7 +134,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               <dl className="mt-6 flex flex-col divide-y divide-line">
                 {[...product.identity, { k: "Contact", v: site.contact.email }].map((row) => (
                   <div key={row.k} className="flex flex-col gap-1 py-3.5 first:pt-0 last:pb-0">
-                    <dt className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-ink-muted">
+                    <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-ink-muted">
                       {row.k}
                     </dt>
                     <dd className="break-words text-[0.875rem] font-medium text-ink">{row.v}</dd>
@@ -148,7 +148,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
                     <p className={`font-display text-base font-semibold ${accent.text}`}>
                       {stat.value}
                     </p>
-                    <p className="mt-1 font-mono text-[0.55rem] uppercase leading-tight tracking-[0.1em] text-ink-muted">
+                    <p className="mt-1 font-mono text-[0.6875rem] uppercase leading-tight tracking-[0.1em] text-ink-muted">
                       {stat.label}
                     </p>
                   </div>
