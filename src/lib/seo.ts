@@ -17,6 +17,17 @@ type PageMetaInput = {
 export const absoluteUrl = (path = "/") =>
   `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
 
+/**
+ * Keep the document title inside the range search engines can display. The
+ * full editorial title is still used for Open Graph, Twitter and on-page
+ * headings, so shortening this string does not rewrite the content itself.
+ */
+export function searchTitle(title: string, maxLength = 65) {
+  if (title.length <= maxLength) return title;
+  const clipped = title.slice(0, maxLength - 1).replace(/\s+\S*$/, "");
+  return `${clipped || title.slice(0, maxLength - 1)}…`;
+}
+
 export function pageMetadata({
   title,
   description,
@@ -31,9 +42,12 @@ export function pageMetadata({
 }: PageMetaInput): Metadata {
   const url = absoluteUrl(path);
   const ogImage = image.startsWith("http") ? image : absoluteUrl(image);
+  const documentTitle = searchTitle(title);
 
   return {
-    title,
+    // Absolute prevents the root layout from appending the company name to
+    // already-complete titles (the main source of Bing's long-title warning).
+    title: { absolute: documentTitle },
     description,
     alternates: { canonical: url },
     robots: noIndex

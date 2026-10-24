@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!product) return {};
 
   return pageMetadata({
-    title: `${product.name} — ${product.category} by DefenseNet Solutions`,
+    title: `${product.name} — ${product.category}`,
     description: product.summary,
     path: `/products/${product.slug}/`,
   });
