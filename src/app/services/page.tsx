@@ -8,13 +8,13 @@ import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { accentClasses } from "@/lib/accent";
-import { services } from "@/lib/site";
+import { services, servicesByGroup } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, serviceCatalogSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Cybersecurity Services — SOC, VAPT, IR, Cloud & Compliance",
+  title: "Cybersecurity Services — SOC, VAPT, EDR, IAM & Compliance",
   description:
-    "Managed SOC, VAPT and red teaming, incident response, cloud security, SIEM engineering and compliance consulting from DefenseNet Solutions, Kerala. Serving India and the Gulf.",
+    "Managed SOC, security analysts, EDR/XDR, VAPT, vulnerability management, database, cloud, network, identity and OT security, incident response and compliance from DefenseNet Solutions — serving India, the UAE and the GCC.",
   path: "/services/",
 });
 
@@ -54,6 +54,34 @@ const situations = [
     label: "SIEM Engineering",
     icon: "activity",
     accent: "emerald" as const,
+  },
+  {
+    situation: "We cannot hire enough experienced security analysts.",
+    slug: "security-analyst-services",
+    label: "Security Analysts",
+    icon: "user-search",
+    accent: "cyan" as const,
+  },
+  {
+    situation: "Our databases hold sensitive data and nobody is sure who can access it.",
+    slug: "database-security",
+    label: "Database Security",
+    icon: "database",
+    accent: "violet" as const,
+  },
+  {
+    situation: "The scanner reports thousands of vulnerabilities and we do not know what to fix first.",
+    slug: "vulnerability-management",
+    label: "Vulnerability Management",
+    icon: "scan-search",
+    accent: "cyan" as const,
+  },
+  {
+    situation: "Our staff keep falling for phishing emails and invoice fraud.",
+    slug: "email-security-awareness",
+    label: "Email & Awareness",
+    icon: "mail",
+    accent: "cyan" as const,
   },
   {
     situation: "We need ISO 27001 or DPDPA compliance and do not know where to start.",
@@ -99,7 +127,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Security programmes built around the risk you actually carry."
-        lede="Six practice areas covering detection, offence, response, cloud, engineering and governance. Engage one, or hand us the whole programme."
+        lede={`${services.length} services across four practice areas — detection and response, offensive testing, infrastructure and data protection, and governance. Engage one, or hand us the whole programme.`}
         crumbs={[
           { name: "Home", path: "/" },
           { name: "Services", path: "/services/" },
@@ -116,72 +144,75 @@ export default function ServicesPage() {
         </div>
       </PageHero>
 
-      <Section>
-        <div className="flex flex-col gap-5">
-          {services.map((service, i) => {
-            const accent = accentClasses[service.accent];
-            return (
-              <Reveal key={service.slug} delay={(i % 3) * 60}>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="card card-hover group grid gap-8 p-8 focus-ring lg:grid-cols-[1.25fr_1fr] lg:p-10"
-                >
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <span
-                        className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl border ${accent.border} ${accent.bg} ${accent.text}`}
-                      >
-                        <ServiceIcon name={service.icon} size={19} />
-                      </span>
-                      <span
-                        className={`font-mono text-[0.6875rem] uppercase tracking-[0.2em] ${accent.text}`}
-                      >
-                        {service.eyebrow}
+      {servicesByGroup.map((group, g) => (
+        <Section key={group.id} id={group.id} className={g ? "border-t border-line" : ""}>
+          <SectionHeading eyebrow={`Practice area ${String(g + 1).padStart(2, "0")}`} title={group.label} lede={group.description} />
+          <div className="mt-12 flex flex-col gap-5 md:mt-14">
+            {group.services.map((service, i) => {
+              const accent = accentClasses[service.accent];
+              return (
+                <Reveal key={service.slug} delay={(i % 3) * 60}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="card card-hover group grid gap-8 p-6 focus-ring sm:p-8 lg:grid-cols-[1.25fr_1fr] lg:p-10"
+                  >
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <span
+                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl border ${accent.border} ${accent.bg} ${accent.text}`}
+                        >
+                          <ServiceIcon name={service.icon} size={19} />
+                        </span>
+                        <span
+                          className={`font-mono text-[0.6875rem] uppercase tracking-[0.2em] ${accent.text}`}
+                        >
+                          {service.eyebrow}
+                        </span>
+                      </div>
+
+                      <h3 className="mt-6 font-display text-2xl font-semibold leading-snug tracking-tight text-ink transition-colors group-hover:text-cyan-signal">
+                        {service.name}
+                      </h3>
+                      <p className="mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
+                        {service.summary}
+                      </p>
+
+                      <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-cyan-signal">
+                        View service detail
+                        <ArrowRight
+                          size={15}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                          aria-hidden
+                        />
                       </span>
                     </div>
 
-                    <h2 className="mt-6 font-display text-2xl font-semibold leading-snug tracking-tight text-ink transition-colors group-hover:text-cyan-signal">
-                      {service.name}
-                    </h2>
-                    <p className="mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
-                      {service.summary}
-                    </p>
-
-                    <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-cyan-signal">
-                      View service detail
-                      <ArrowRight
-                        size={15}
-                        className="transition-transform duration-300 group-hover:translate-x-1"
-                        aria-hidden
-                      />
-                    </span>
-                  </div>
-
-                  <div className="rounded-xl border border-line bg-void/40 p-6">
-                    <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-ink-muted">
-                      What you get
-                    </p>
-                    <ul className="mt-4 flex flex-col gap-3">
-                      {service.outcomes.map((outcome) => (
-                        <li
-                          key={outcome}
-                          className="flex items-start gap-2.5 text-[0.8125rem] leading-relaxed text-ink-muted"
-                        >
-                          <span
-                            className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${accent.dot}`}
-                            aria-hidden
-                          />
-                          {outcome}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Link>
-              </Reveal>
-            );
-          })}
-        </div>
-      </Section>
+                    <div className="rounded-xl border border-line bg-void/40 p-6">
+                      <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-ink-muted">
+                        What you get
+                      </p>
+                      <ul className="mt-4 flex flex-col gap-3">
+                        {service.outcomes.map((outcome) => (
+                          <li
+                            key={outcome}
+                            className="flex items-start gap-2.5 text-[0.8125rem] leading-relaxed text-ink-muted"
+                          >
+                            <span
+                              className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${accent.dot}`}
+                              aria-hidden
+                            />
+                            {outcome}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
+        </Section>
+      ))}
 
       {/* Situation → service decision grid */}
       <Section className="border-t border-line">

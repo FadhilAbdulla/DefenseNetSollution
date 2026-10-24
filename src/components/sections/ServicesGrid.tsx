@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
@@ -9,7 +9,7 @@ import { services } from "@/lib/site";
 export function ServicesGrid({
   eyebrow = "Services",
   title = "Everything a modern security programme needs.",
-  lede = "Six practice areas, one accountable team. Engage them individually or as a managed programme with a single point of contact.",
+  lede = `${services.length} services, one accountable team. Start with the core six below, or engage the whole programme with a single point of contact.`,
 }: {
   eyebrow?: string;
   title?: string;
@@ -20,7 +20,7 @@ export function ServicesGrid({
       <SectionHeading eyebrow={eyebrow} title={title} lede={lede} />
 
       <div className="mt-14 grid gap-5 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
-        {services.map((service, i) => {
+        {services.slice(0, 6).map((service, i) => {
           const accent = accentClasses[service.accent];
           return (
             <Reveal key={service.slug} delay={(i % 3) * 80}>
@@ -65,6 +65,20 @@ export function ServicesGrid({
           );
         })}
       </div>
+
+      <Reveal className="mt-10">
+        <Link
+          href="/services"
+          className="group -my-2 inline-flex items-center gap-2 py-2 text-sm font-medium text-cyan-signal focus-ring"
+        >
+          See all {services.length} services — database security, analysts, EDR, IAM and more
+          <ArrowRight
+            size={15}
+            className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+            aria-hidden
+          />
+        </Link>
+      </Reveal>
     </Section>
   );
 }

@@ -401,6 +401,10 @@ body {
   font-size: 0.85rem;
   line-height: 1.65;
 }
+/* Long tokens (payload strings, hashes, paths) must wrap instead of widening the page. */
+.prose-dn :not(pre) > code {
+  overflow-wrap: anywhere;
+}
 .prose-dn pre code {
   background: none;
   border: 0;

@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { services, products, site, fullAddress, whatsappLink } from "@/lib/site";
-import { getAllPosts, getCategories } from "@/lib/blog";
+import { getCategories } from "@/lib/blog";
+import { getCves } from "@/lib/resources";
 
 /** lucide-react dropped brand marks, so the LinkedIn glyph lives here. */
 function LinkedInMark({ size = 15 }: { size?: number }) {
@@ -27,6 +28,13 @@ const companyLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+const resourceLinks = [
+  { label: "All resources", href: "/resources" },
+  { label: "CVE advisories", href: "/resources/cve" },
+  { label: "Incident case studies", href: "/resources/incidents" },
+  { label: "Insights blog", href: "/blog" },
+];
+
 const legalLinks = [
   { label: "Privacy policy", href: "/privacy-policy" },
   { label: "Terms & conditions", href: "/terms-and-conditions" },
@@ -36,7 +44,7 @@ const legalLinks = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const latestPosts = getAllPosts().slice(0, 3);
+  const latestAdvisories = getCves().slice(0, 3);
   const topCategories = getCategories().slice(0, 4);
 
   return (
@@ -134,27 +142,38 @@ export function Footer() {
             ))}
           </FooterColumn>
 
-          {/* Blog */}
+          {/* Resources */}
           <div>
-            <h3 className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink">Blog</h3>
+            <h3 className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink">
+              Resources
+            </h3>
 
-            <ul className="mt-5 flex flex-col gap-3">
-              {latestPosts.map((post) => (
-                <li key={post.slug}>
+            <ul className="mt-4 flex flex-col gap-1">
+              {resourceLinks.map((l) => (
+                <FooterLink key={l.href} href={l.href}>
+                  {l.label}
+                </FooterLink>
+              ))}
+            </ul>
+
+            <p className="mt-5 font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-muted">
+              Latest advisories
+            </p>
+            <ul className="mt-2 flex flex-col">
+              {latestAdvisories.map((cve) => (
+                <li key={cve.slug}>
                   <Link
-                    href={`/blog/${post.slug}`}
-                    className="group block text-sm leading-snug text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
+                    href={cve.path}
+                    className="group block py-1.5 text-sm leading-snug text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
                   >
-                    <span className="line-clamp-2">{post.title}</span>
-                    <span className="mt-1 block font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-muted/70">
-                      {post.readingTime} min · {post.category}
-                    </span>
+                    <span className="font-mono text-[0.75rem] text-cyan-signal">{cve.cve}</span>
+                    {cve.alias ? <span className="block">{cve.alias}</span> : null}
                   </Link>
                 </li>
               ))}
             </ul>
 
-            <ul className="mt-5 flex flex-wrap gap-1.5">
+            <ul className="mt-4 flex flex-wrap gap-1.5">
               {topCategories.map((cat) => (
                 <li key={cat.slug}>
                   <Link
@@ -166,18 +185,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-
-            <Link
-              href="/blog"
-              className="group mt-3 inline-flex items-center gap-1.5 py-2 text-sm font-medium text-cyan-signal focus-ring"
-            >
-              All articles
-              <ArrowUpRight
-                size={13}
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                aria-hidden
-              />
-            </Link>
           </div>
 
           {/* Contact */}

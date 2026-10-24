@@ -7,6 +7,7 @@ import { IndustriesGrid } from "@/components/sections/IndustriesGrid";
 import { ProductsTeaser } from "@/components/sections/ProductsTeaser";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { LatestInsights } from "@/components/sections/LatestInsights";
+import { ThreatAdvisories } from "@/components/sections/ThreatAdvisories";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { pageMetadata, serviceCatalogSchema, faqSchema } from "@/lib/seo";
@@ -14,7 +15,7 @@ import { pageMetadata, serviceCatalogSchema, faqSchema } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "AI-Based Cybersecurity Company in Kerala, India",
   description:
-    "DefenseNet Solutions delivers AI-triaged 24/7 managed SOC, VAPT, incident response, cloud security, SIEM engineering and compliance consulting to businesses across India and the Gulf.",
+    "DefenseNet Solutions delivers AI-triaged 24/7 managed SOC, security analysts, EDR/XDR, VAPT, vulnerability management, database and cloud security, incident response and compliance to businesses across India, the UAE and the GCC.",
   path: "/",
 });
 
@@ -52,6 +53,7 @@ export default function HomePage() {
       <IndustriesGrid limit={8} />
       <ProductsTeaser />
       <Testimonials />
+      <ThreatAdvisories />
       <LatestInsights />
       <CtaBand />
     </>

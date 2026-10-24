@@ -114,7 +114,12 @@ export const organizationSchema = () => ({
   },
   areaServed: [
     { "@type": "Country", name: "India" },
-    { "@type": "Place", name: "Gulf Cooperation Council" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "Saudi Arabia" },
+    { "@type": "Country", name: "Qatar" },
+    { "@type": "Country", name: "Oman" },
+    { "@type": "Country", name: "Bahrain" },
+    { "@type": "Country", name: "Kuwait" },
   ],
   sameAs: [site.social.linkedin, site.social.x, "https://tenreply.com"],
 });
@@ -180,7 +185,7 @@ export const serviceCatalogSchema = () => ({
       description: s.summary,
       url: absoluteUrl(`/services/${s.slug}/`),
       provider: { "@id": `${site.url}/#organization` },
-      areaServed: ["India", "United Arab Emirates", "Saudi Arabia", "Qatar", "Oman"],
+      areaServed: ["India", "United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain", "Kuwait"],
     },
   })),
 });
@@ -235,3 +240,31 @@ export const articleSchema = (post: {
 /** Wraps graph nodes into a single @graph document. */
 export const jsonLdGraph = (nodes: object[]) =>
   JSON.stringify({ "@context": "https://schema.org", "@graph": nodes });
+
+/** TechArticle node for a CVE advisory or incident case study. */
+export const resourceArticleSchema = (r: {
+  title: string;
+  description: string;
+  path: string;
+  date: string;
+  updated?: string;
+  tags: string[];
+  section: string;
+  about: object;
+}) => ({
+  "@type": "TechArticle",
+  "@id": absoluteUrl(`${r.path}#article`),
+  headline: r.title,
+  description: r.description,
+  url: absoluteUrl(r.path),
+  datePublished: r.date,
+  dateModified: r.updated ?? r.date,
+  articleSection: r.section,
+  keywords: r.tags.join(", "),
+  inLanguage: "en",
+  about: r.about,
+  author: { "@type": "Organization", name: site.name, url: site.url },
+  publisher: { "@id": `${site.url}/#organization` },
+  mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(r.path) },
+  image: absoluteUrl("/og/default.png"),
+});

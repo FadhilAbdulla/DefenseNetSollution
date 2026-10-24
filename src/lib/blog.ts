@@ -1,13 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeStringify from "rehype-stringify";
+import {
+  slugify,
+  readingTimeOf,
+  extractHeadings,
+  renderMarkdown,
+  formatDate,
+  type Heading,
+} from "./markdown";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
@@ -26,48 +27,12 @@ export type Post = PostFrontmatter & {
   slug: string;
   author: string;
   readingTime: number;
-  headings: { id: string; text: string; level: 2 | 3 }[];
+  headings: Heading[];
 };
 
 export type PostWithBody = Post & { html: string };
 
 /* ------------------------------------------------------------------ */
-
-const slugify = (value: string) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-
-const readingTimeOf = (markdown: string) => {
-  const words = markdown.trim().split(/\s+/).length;
-  return Math.max(1, Math.round(words / 200));
-};
-
-/** Pulls h2/h3 out of the raw markdown for the article's table of contents. */
-const extractHeadings = (markdown: string) => {
-  const headings: { id: string; text: string; level: 2 | 3 }[] = [];
-  let inFence = false;
-
-  for (const line of markdown.split("\n")) {
-    if (line.trimStart().startsWith("```")) {
-      inFence = !inFence;
-      continue;
-    }
-    if (inFence) continue;
-
-    const match = /^(#{2,3})\s+(.+?)\s*$/.exec(line);
-    if (!match) continue;
-
-    const text = match[2].replace(/[*_`]/g, "");
-    headings.push({
-      id: slugify(text),
-      text,
-      level: match[1].length as 2 | 3,
-    });
-  }
-  return headings;
-};
 
 const parseFile = (fileName: string): Post & { raw: string } => {
   const slug = fileName.replace(/\.mdx?$/, "");
@@ -168,27 +133,7 @@ export async function getPost(slug: string): Promise<PostWithBody | null> {
   const entry = loadAll().find((p) => p.slug === slug);
   if (!entry) return null;
 
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings, {
-      behavior: "append",
-      properties: { className: ["heading-anchor"], ariaHidden: "true", tabIndex: -1 },
-      content: { type: "text", value: "#" },
-    })
-    .use(rehypeStringify)
-    .process(entry.raw);
-
-  return { ...strip(entry), html: String(file) };
+  return { ...strip(entry), html: await renderMarkdown(entry.raw) };
 }
 
-export const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-
-export { slugify };
+export { slugify, formatDate };

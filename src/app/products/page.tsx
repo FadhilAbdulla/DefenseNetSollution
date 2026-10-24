@@ -14,22 +14,14 @@ import { pageMetadata, breadcrumbSchema, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Products — Software Built by DefenseNet Solutions",
   description:
-    "Products engineered by DefenseNet Solutions: Guardian for scheduled automated penetration testing, Red-Vault for corporate password and secrets management, and Tenreply for WhatsApp Business API messaging.",
+    "Products engineered by DefenseNet Solutions: Guardian automated penetration testing, Red-Vault password and secrets management, Tenreply WhatsApp Business API, plus Exposure Monitor and Detection Content Manager in early access.",
   path: "/products/",
 });
 
-const roadmap = [
-  {
-    name: "Detection Content Manager",
-    body: "Version-controlled detection rules with ATT&CK mapping, automated testing and one-click deployment across Sentinel, Splunk and Elastic.",
-  },
-  {
-    name: "Exposure Monitor",
-    body: "Always-on external attack surface discovery — new subdomains, forgotten services and credential leaks, checked daily and fed straight into Guardian for testing.",
-  },
-];
-
 export default function ProductsPage() {
+  const live = products.filter((p) => p.status === "live");
+  const upcoming = products.filter((p) => p.status !== "live");
+
   return (
     <>
       <JsonLd
@@ -63,11 +55,11 @@ export default function ProductsPage() {
 
       <Section>
         <div className="grid gap-5">
-          {products.map((product, i) => {
+          {live.map((product, i) => {
             const accent = accentClasses[product.accent];
             return (
               <Reveal key={product.slug} delay={i * 80}>
-                <div className="card card-hover relative overflow-hidden p-8 lg:p-12">
+                <div className="card card-hover relative overflow-hidden p-6 sm:p-8 lg:p-12">
                   <div
                     className={`pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full ${accent.bg} blur-3xl`}
                     aria-hidden
@@ -157,18 +149,26 @@ export default function ProductsPage() {
         </Reveal>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {roadmap.map((item, i) => (
-            <Reveal key={item.name} delay={i * 90}>
-              <article className="card h-full border-dashed p-8">
-                <span className="chip">
+          {upcoming.map((item, i) => (
+            <Reveal key={item.slug} delay={i * 90}>
+              <Link
+                href={`/products/${item.slug}`}
+                className="card card-hover group flex h-full flex-col border-dashed p-6 focus-ring sm:p-8"
+              >
+                <span className="chip w-fit">
                   <Sparkles size={11} aria-hidden />
-                  In development
+                  In development · early access
                 </span>
-                <h3 className="mt-5 font-display text-lg font-semibold tracking-tight text-ink">
+                <h3 className="mt-5 font-display text-lg font-semibold tracking-tight text-ink group-hover:text-cyan-signal">
                   {item.name}
                 </h3>
-                <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{item.body}</p>
-              </article>
+                <p className="mt-1 text-[0.8125rem] text-ink-muted">{item.category}</p>
+                <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-muted">{item.summary}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-cyan-signal">
+                  Product preview
+                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" aria-hidden />
+                </span>
+              </Link>
             </Reveal>
           ))}
         </div>

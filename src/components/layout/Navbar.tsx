@@ -3,15 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, X, Phone } from "lucide-react";
-import { primaryNav, site } from "@/lib/site";
+import { useEffect, useRef, useState, type FocusEvent } from "react";
+import { ArrowRight, ChevronDown, Menu, X, Phone } from "lucide-react";
+import { primaryNav, site, type NavItem, type NavLink } from "@/lib/site";
+
+const allLinks = (item: NavItem): NavLink[] =>
+  item.groups ? item.groups.flatMap((g) => g.items) : (item.children ?? []);
 
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const drawerNav = useRef<HTMLElement>(null);
 
@@ -50,8 +54,10 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const isActive = (href: string) =>
+  const matches = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const isActive = (item: NavItem) =>
+    matches(item.href) || (item.match ?? []).some((prefix) => matches(prefix));
 
   const scheduleClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -59,6 +65,10 @@ export function Navbar() {
   };
   const cancelClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
+  };
+  // Keep a dropdown open while keyboard focus is anywhere inside it.
+  const onMenuBlur = (e: FocusEvent<HTMLDivElement>) => {
+    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenMenu(null);
   };
 
   return (
@@ -90,12 +100,13 @@ export function Navbar() {
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          {/* Desktop nav — `relative` so mega menus can centre on the whole bar */}
+          <nav className="relative hidden items-center gap-1 lg:flex" aria-label="Primary">
             {primaryNav.map((item) => {
-              const active = isActive(item.href);
+              const active = isActive(item);
+              const links = allLinks(item);
 
-              if (!item.children) {
+              if (!links.length) {
                 return (
                   <Link
                     key={item.href}
@@ -110,15 +121,18 @@ export function Navbar() {
               }
 
               const open = openMenu === item.label;
+              const mega = Boolean(item.groups);
               return (
                 <div
                   key={item.href}
-                  className="relative"
+                  className={mega ? "" : "relative"}
                   onMouseEnter={() => {
                     cancelClose();
                     setOpenMenu(item.label);
                   }}
                   onMouseLeave={scheduleClose}
+                  onFocus={() => setOpenMenu(item.label)}
+                  onBlur={onMenuBlur}
                 >
                   <Link
                     href={item.href}
@@ -136,29 +150,45 @@ export function Navbar() {
                   </Link>
 
                   <div
-                    className={`absolute left-1/2 top-full w-[22rem] -translate-x-1/2 pt-3 transition-all duration-200 ${
+                    inert={!open}
+                    className={`absolute left-1/2 top-full -translate-x-1/2 pt-3 transition-all duration-200 ${
+                      mega ? "w-[min(54rem,calc(100vw-2rem))]" : "w-[22rem]"
+                    } ${
                       open
                         ? "pointer-events-auto translate-y-0 opacity-100"
                         : "pointer-events-none -translate-y-1 opacity-0"
                     }`}
                   >
                     <div className="glass overflow-hidden rounded-xl p-2 shadow-2xl shadow-black/60">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="group block rounded-lg px-3 py-2.5 transition-colors hover:bg-elevated focus-ring"
-                        >
-                          <span className="block text-sm font-medium text-ink group-hover:text-cyan-signal">
-                            {child.label}
-                          </span>
-                          {child.description ? (
-                            <span className="mt-0.5 block text-xs leading-relaxed text-ink-muted">
-                              {child.description}
-                            </span>
-                          ) : null}
-                        </Link>
-                      ))}
+                      {item.groups ? (
+                        <>
+                          <div className="grid grid-cols-4 gap-x-1 p-2">
+                            {item.groups.map((group) => (
+                              <div key={group.label}>
+                                <p className="px-3 pb-1.5 pt-1 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-cyan-signal">
+                                  {group.label}
+                                </p>
+                                {group.items.map((child) => (
+                                  <DropdownLink key={child.href} link={child} compact />
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                          <Link
+                            href={item.href}
+                            className="group mt-1 flex items-center justify-between rounded-lg border-t border-line px-5 py-3 text-sm font-medium text-cyan-signal transition-colors hover:bg-elevated focus-ring"
+                          >
+                            View all {links.length} services
+                            <ArrowRight
+                              size={14}
+                              className="transition-transform group-hover:translate-x-1"
+                              aria-hidden
+                            />
+                          </Link>
+                        </>
+                      ) : (
+                        links.map((child) => <DropdownLink key={child.href} link={child} />)
+                      )}
                     </div>
                   </div>
                 </div>
@@ -221,32 +251,67 @@ export function Navbar() {
 
           <nav ref={drawerNav} className="flex-1 overflow-y-auto px-5 py-6" aria-label="Mobile">
             <ul className="flex flex-col gap-1">
-              {primaryNav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`block rounded-lg px-3 py-3 font-display text-base font-medium transition-colors ${
-                      isActive(item.href) ? "text-cyan-signal" : "text-ink"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                  {item.children ? (
-                    <ul className="mb-2 ml-3 flex flex-col gap-0.5 border-l border-line pl-3">
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            className="block rounded-md px-2 py-2.5 text-sm text-ink-muted transition-colors hover:text-cyan-signal"
-                          >
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </li>
-              ))}
+              {primaryNav.map((item) => {
+                const links = allLinks(item);
+                const expanded = mobileSection === item.label;
+                const panelId = `mobile-${item.label.toLowerCase()}`;
+                return (
+                  <li key={item.href}>
+                    <div className="flex items-center">
+                      <Link
+                        href={item.href}
+                        className={`block flex-1 rounded-lg px-3 py-3 font-display text-base font-medium transition-colors ${
+                          isActive(item) ? "text-cyan-signal" : "text-ink"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                      {links.length ? (
+                        <button
+                          type="button"
+                          onClick={() => setMobileSection(expanded ? null : item.label)}
+                          aria-expanded={expanded}
+                          aria-controls={panelId}
+                          aria-label={`${expanded ? "Hide" : "Show"} ${item.label} links`}
+                          className="grid h-11 w-11 shrink-0 place-items-center rounded-lg text-ink-muted transition-colors hover:text-ink focus-ring"
+                        >
+                          <ChevronDown
+                            size={17}
+                            className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+                            aria-hidden
+                          />
+                        </button>
+                      ) : null}
+                    </div>
+
+                    {links.length && expanded ? (
+                      <div id={panelId} className="mb-2 ml-3 border-l border-line pl-3">
+                        {(item.groups ?? [{ label: "", items: links }]).map((group) => (
+                          <div key={group.label || item.label} className="py-1">
+                            {group.label ? (
+                              <p className="px-2 pb-1 pt-2 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-cyan-signal">
+                                {group.label}
+                              </p>
+                            ) : null}
+                            <ul className="flex flex-col">
+                              {group.items.map((child) => (
+                                <li key={child.href}>
+                                  <Link
+                                    href={child.href}
+                                    className="block rounded-md px-2 py-2.5 text-sm text-ink-muted transition-colors hover:text-cyan-signal"
+                                  >
+                                    {child.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -265,5 +330,26 @@ export function Navbar() {
         </div>
       </div>
     </>
+  );
+}
+
+function DropdownLink({ link, compact = false }: { link: NavLink; compact?: boolean }) {
+  return (
+    <Link
+      href={link.href}
+      title={compact ? link.description : undefined}
+      className={`group block rounded-lg px-3 transition-colors hover:bg-elevated focus-ring ${
+        compact ? "py-1.5" : "py-2.5"
+      }`}
+    >
+      <span className="block text-sm font-medium text-ink group-hover:text-cyan-signal">
+        {link.label}
+      </span>
+      {link.description && !compact ? (
+        <span className="mt-0.5 block text-xs leading-relaxed text-ink-muted">
+          {link.description}
+        </span>
+      ) : null}
+    </Link>
   );
 }

@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!service) return {};
 
   return pageMetadata({
-    title: `${service.name} in India & the Gulf`,
+    title: `${service.name} in India & the UAE`,
     description: service.summary,
     path: `/services/${service.slug}/`,
   });
@@ -41,7 +41,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
   if (!service) notFound();
 
   const accent = accentClasses[service.accent];
-  const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+  // Related services: same practice area first, then the rest of the catalogue.
+  const others = [
+    ...services.filter((s) => s.slug !== service.slug && s.group === service.group),
+    ...services.filter((s) => s.slug !== service.slug && s.group !== service.group),
+  ].slice(0, 3);
 
   return (
     <>
@@ -55,7 +59,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
             description: service.summary,
             url: absoluteUrl(`/services/${service.slug}/`),
             provider: { "@id": `${site.url}/#organization` },
-            areaServed: ["India", "United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain"],
+            areaServed: ["India", "United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain", "Kuwait"],
             hasOfferCatalog: {
               "@type": "OfferCatalog",
               name: `${service.name} capabilities`,
@@ -230,7 +234,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
 
       {/* Other services */}
       <Section className="border-t border-line">
-        <SectionHeading eyebrow="Related" title="Other practice areas" />
+        <SectionHeading eyebrow="Related" title="Related services" />
         <div className="mt-12 grid gap-5 md:mt-14 md:grid-cols-3">
           {others.map((other, i) => {
             const otherAccent = accentClasses[other.accent];

@@ -21,6 +21,19 @@ import {
   Truck,
   MessageSquare,
   Vault,
+  Laptop,
+  UserSearch,
+  ServerCog,
+  Telescope,
+  ScanSearch,
+  Database,
+  Network,
+  Fingerprint,
+  Mail,
+  GitBranch,
+  Bug,
+  Flame,
+  BookOpen,
   type LucideIcon,
 } from "lucide-react";
 
@@ -49,6 +62,21 @@ const registry: Record<string, LucideIcon> = {
   // Products
   message: MessageSquare,
   vault: Vault,
+  "git-branch": GitBranch,
+  // Services added with the expanded catalogue
+  laptop: Laptop,
+  "user-search": UserSearch,
+  "server-cog": ServerCog,
+  telescope: Telescope,
+  "scan-search": ScanSearch,
+  database: Database,
+  network: Network,
+  fingerprint: Fingerprint,
+  mail: Mail,
+  // Resources
+  bug: Bug,
+  flame: Flame,
+  "book-open": BookOpen,
 };
 
 export function ServiceIcon({

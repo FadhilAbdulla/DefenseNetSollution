@@ -52,7 +52,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
             url: product.url ?? absoluteUrl(`/products/${product.slug}/`),
             description: product.summary,
             publisher: { "@id": `${site.url}/#organization` },
-            offers: { "@type": "Offer", availability: "https://schema.org/InStock" },
+            offers: {
+              "@type": "Offer",
+              availability:
+                product.status === "live" ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
+            },
           },
           faqSchema(product.faqs),
           breadcrumbSchema([
@@ -90,7 +94,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
             </a>
           ) : (
             <Link href="/contact" className="btn btn-primary">
-              Request a demo
+              {product.status === "live" ? "Request a demo" : "Request early access"}
               <ArrowRight size={15} aria-hidden />
             </Link>
           )}
