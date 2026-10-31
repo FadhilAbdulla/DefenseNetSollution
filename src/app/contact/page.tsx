@@ -5,13 +5,13 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { site, fullAddress, whatsappLink } from "@/lib/site";
-import { pageMetadata, breadcrumbSchema, localBusinessSchema } from "@/lib/seo";
+import { site, offices, whatsappLink } from "@/lib/site";
+import { pageMetadata, breadcrumbSchema, localBusinessSchema, dubaiBusinessSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact — Talk to a Security Engineer in Kerala",
+  title: "Contact — Security Engineers in Dubai and Kerala",
   description:
-    "Contact DefenseNet Solutions at HiLITE Business Park, Kozhikode, Kerala. Call +91 86603 71224 for 24/7 incident response, or send an enquiry for SOC, VAPT, cloud security and compliance work.",
+    "Contact DefenseNet Solutions in Dubai (IT Center Building, Al Souq Al Kabeer, +971 56 938 0690) or Kozhikode, Kerala. Call +91 86603 71224 for 24/7 incident response, or send an enquiry for SOC, VAPT, WAF, server and compliance work.",
   path: "/contact/",
 });
 
@@ -39,9 +39,7 @@ const channels = [
   },
 ];
 
-const mapQuery = encodeURIComponent(
-  "HiLITE Business Park, Poovangal, Pantheeramkavu, Kozhikode, Kerala 673014",
-);
+const mapQuery = encodeURIComponent(offices[0].mapQuery);
 
 export default function ContactPage() {
   return (
@@ -49,6 +47,7 @@ export default function ContactPage() {
       <JsonLd
         nodes={[
           localBusinessSchema(),
+          dubaiBusinessSchema(),
           {
             "@type": "ContactPage",
             name: "Contact DefenseNet Solutions",
@@ -146,19 +145,35 @@ export default function ContactPage() {
                 <MapPin size={17} aria-hidden />
               </span>
               <h3 className="mt-5 font-display text-base font-semibold tracking-tight text-ink">
-                Our office
+                Our offices
               </h3>
-              <address className="mt-3 text-[0.875rem] not-italic leading-relaxed text-ink-muted">
-                {fullAddress}
-              </address>
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="mt-2 inline-block py-2 text-sm text-cyan-signal hover:underline focus-ring"
-              >
-                Open in Google Maps
-              </a>
+              <div className="mt-4 flex flex-col divide-y divide-line">
+                {offices.map((office) => (
+                  <div key={office.id} className="py-4 first:pt-0 last:pb-0">
+                    <p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-cyan-signal">
+                      {office.label} · {office.city}
+                    </p>
+                    <address className="mt-2 text-[0.875rem] not-italic leading-relaxed text-ink-muted">
+                      {office.address}
+                    </address>
+                    <a
+                      href={`tel:${office.phoneHref}`}
+                      className="mt-1 inline-flex items-center gap-2 py-1.5 font-mono text-sm text-ink hover:text-cyan-signal focus-ring"
+                    >
+                      <Phone size={13} className="text-cyan-signal" aria-hidden />
+                      {office.phone}
+                    </a>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.mapQuery)}`}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="mt-1 inline-block py-2 text-sm text-cyan-signal hover:underline focus-ring"
+                    >
+                      Open in Google Maps
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="card p-7">

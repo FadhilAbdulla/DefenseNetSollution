@@ -59,7 +59,63 @@ export const fullAddress = [
   site.contact.address.country,
 ].join(", ");
 
-export const whatsappLink = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(
+/**
+ * Offices shown to visitors. Kozhikode stays the registered headquarters used
+ * on legal pages; Dubai serves clients in the UAE and the wider GCC.
+ */
+export type Office = {
+  id: "kozhikode" | "dubai";
+  label: string;
+  city: string;
+  country: string;
+  countryCode: string;
+  /** Single-line address, formatted as the office writes it. */
+  address: string;
+  streetAddress: string;
+  locality: string;
+  region: string;
+  postalCode?: string;
+  /** Display format and tel: link value for this office's phone line. */
+  phone: string;
+  phoneHref: string;
+  mapQuery: string;
+};
+
+export const offices: Office[] = [
+  {
+    id: "kozhikode",
+    label: "Headquarters",
+    city: "Kozhikode",
+    country: "India",
+    countryCode: "IN",
+    address: fullAddress,
+    streetAddress: `${site.contact.address.line1}, ${site.contact.address.line2}`,
+    locality: site.contact.address.locality,
+    region: site.contact.address.region,
+    postalCode: site.contact.address.postalCode,
+    phone: site.contact.phone,
+    phoneHref: site.contact.phoneHref,
+    mapQuery: "HiLITE Business Park, Poovangal, Pantheeramkavu, Kozhikode, Kerala 673014",
+  },
+  {
+    id: "dubai",
+    label: "Regional office",
+    city: "Dubai",
+    country: "United Arab Emirates",
+    countryCode: "AE",
+    address: "IT Center Building - Shop No.99 - Al Souq Al Kabeer - Dubai, United Arab Emirates",
+    streetAddress: "IT Center Building - Shop No.99 - Al Souq Al Kabeer",
+    locality: "Dubai",
+    region: "Dubai",
+    phone: "+971 56 938 0690",
+    phoneHref: "+971569380690",
+    mapQuery: "IT Center Building, Al Souq Al Kabeer, Dubai",
+  },
+];
+
+export const dubaiOffice = offices.find((o) => o.id === "dubai")!;
+
+export const whatsappLink =`https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(
   site.contact.whatsappMessage,
 )}`;
 
@@ -1413,6 +1469,243 @@ export const services: Service[] = [
       {
         q: "Do you work with our control engineers?",
         a: "Always. Plant engineers own the process and know what is safe. Every recommendation is reviewed with them before it is implemented.",
+      },
+    ],
+  },
+
+  {
+    slug: "server-migration",
+    name: "Server & Cloud Migration",
+    short: "Server Migration",
+    eyebrow: "Secure Migration",
+    icon: "migrate",
+    accent: "cyan",
+    group: "infrastructure-data",
+    tagline: "On-prem, data centre and cloud moves",
+    summary:
+      "Planned, secure migration of servers, applications and databases — on-premises to cloud, data centre to data centre, or ageing operating systems to supported ones — with security controls carried across, data integrity verified and a tested rollback at every step.",
+    outcomes: [
+      "A migration plan with dependencies, cutover windows and rollback agreed before anything moves",
+      "Data integrity verified by checksums and application testing, not assumed",
+      "Security baselines, logging and backups live in the new environment from day one",
+    ],
+    phases: [
+      {
+        name: "Discover",
+        duration: "Week 1–2",
+        body: "Servers, applications, dependencies, data volumes, licensing and constraints such as data residency inventoried and mapped.",
+      },
+      {
+        name: "Plan",
+        duration: "Week 2–4",
+        body: "Target architecture, migration waves, rehost or replatform decisions, and written cutover and rollback runbooks.",
+      },
+      {
+        name: "Migrate",
+        duration: "Per wave",
+        body: "Continuous replication, pre-cutover testing, cutover in an agreed window and immediate validation against acceptance criteria.",
+      },
+      {
+        name: "Stabilise",
+        duration: "2–4 weeks",
+        body: "Performance tuning, security hardening, monitoring handover and controlled decommissioning of the old environment.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "Migration assessment and wave planning",
+        body: "Dependency mapping shows what must move together. Each workload gets a decision — rehost, replatform, refactor, retire — and a slot in a wave plan the business has signed off.",
+      },
+      {
+        title: "Cloud and data centre migration",
+        body: "Moves to AWS, Azure, Google Cloud and Oracle Cloud, including UAE and India regions where data must stay in-country, as well as data centre consolidations and VMware exits.",
+      },
+      {
+        title: "Database and application migration",
+        body: "Replication-based database moves that keep downtime to a short cutover window, with version upgrades, character-set checks and row-count and checksum validation.",
+      },
+      {
+        title: "Security carried across",
+        body: "Identity, encryption, segmentation and logging rebuilt properly in the target — and credentials rotated, firewall openings closed and old access removed when the source is decommissioned.",
+      },
+    ],
+    deliverables: [
+      "Asset and dependency inventory",
+      "Wave plan with cutover and rollback runbooks",
+      "Data validation report for every wave",
+      "Post-migration security baseline and decommissioning record",
+    ],
+    stack: ["AWS Application Migration Service", "Azure Migrate", "VMware", "Veeam", "Terraform", "Database replication tools"],
+    faqs: [
+      {
+        q: "How much downtime will a migration need?",
+        a: "With continuous replication, most workloads move in a cutover window of minutes to a few hours. Acceptable downtime is agreed per system before the plan is finalised, and every cutover has a tested rollback.",
+      },
+      {
+        q: "Can our data stay inside the UAE or India?",
+        a: "Yes. We migrate into in-country cloud regions — such as Microsoft Azure UAE North and AWS Middle East (UAE), or India regions — and local data centres, and document residency for your compliance records.",
+      },
+      {
+        q: "Our servers run old operating systems. Can you upgrade them as part of the move?",
+        a: "Migration is the best moment to do it. We plan operating system and application upgrades into the wave where it is safe, or schedule them as an immediate follow-on so unsupported systems do not simply move to a new home.",
+      },
+    ],
+  },
+
+  {
+    slug: "server-setup-hardening",
+    name: "Server Setup & Hardening",
+    short: "Server Setup",
+    eyebrow: "Infrastructure Build",
+    icon: "server",
+    accent: "emerald",
+    group: "infrastructure-data",
+    tagline: "Hardened Linux and Windows server builds",
+    summary:
+      "New Linux and Windows servers built right the first time — installed, hardened to CIS Benchmarks, patched, backed up and monitored — whether on-premises, in a data centre or in the cloud.",
+    outcomes: [
+      "Servers built from a documented, repeatable baseline instead of by hand",
+      "CIS-aligned hardening, with every deviation recorded and justified",
+      "Patching, backups and monitoring switched on before go-live, not after",
+    ],
+    phases: [
+      {
+        name: "Design",
+        duration: "Week 1",
+        body: "Sizing, operating system, network placement, access model and backup requirements agreed in writing.",
+      },
+      {
+        name: "Build",
+        duration: "Week 1–2",
+        body: "Automated provisioning with infrastructure-as-code and configuration management, so every server is reproducible.",
+      },
+      {
+        name: "Harden",
+        duration: "Week 2",
+        body: "CIS Benchmark settings, unused services removed, remote access locked down, EDR and logging installed.",
+      },
+      {
+        name: "Handover",
+        duration: "Week 3",
+        body: "Documentation, runbooks and credentials handed over — or ongoing management by our team.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "Linux and Windows server builds",
+        body: "Ubuntu, Red Hat Enterprise Linux, Rocky, Debian and Windows Server — for web, application, database, file and directory services — on physical hardware, virtual platforms or cloud.",
+      },
+      {
+        title: "CIS Benchmark hardening",
+        body: "Configuration hardened to the CIS Benchmark for the operating system, verified with automated assessment, with any setting that must differ documented and approved.",
+      },
+      {
+        title: "Secure remote access",
+        body: "SSH and RDP never exposed directly to the internet: access through a bastion or VPN, key-based authentication, MFA for administrators and session logging.",
+      },
+      {
+        title: "Patching, backups and monitoring",
+        body: "Automated patch cycles, backups that are restore-tested, and uptime and security monitoring connected to our SOC from the first day in production.",
+      },
+    ],
+    deliverables: [
+      "Build documentation and network diagram",
+      "CIS Benchmark hardening report",
+      "Infrastructure-as-code and configuration scripts",
+      "Backup, patching and monitoring runbooks",
+    ],
+    stack: ["Ubuntu / RHEL", "Windows Server", "Ansible", "Terraform", "CIS-CAT", "Wazuh"],
+    faqs: [
+      {
+        q: "Can you manage the servers after setting them up?",
+        a: "Yes. Many clients hand over day-to-day operations — patching, backups, monitoring and incident response — under a managed service with agreed SLAs.",
+      },
+      {
+        q: "Do you set up web servers, TLS and reverse proxies?",
+        a: "Yes — Nginx, Apache and IIS, TLS certificates with automated renewal, reverse proxies and load balancers, configured to current security guidance.",
+      },
+      {
+        q: "Cloud or on-premises?",
+        a: "Both. The same hardened baseline is applied whether the server runs in your office, a data centre in Dubai or Kerala, or a public cloud region.",
+      },
+    ],
+  },
+
+  {
+    slug: "waf-ddos-protection",
+    name: "WAF & DDoS Protection",
+    short: "WAF & DDoS",
+    eyebrow: "Application Shielding",
+    icon: "shield-half",
+    accent: "rose",
+    group: "infrastructure-data",
+    tagline: "Web application firewall setup and tuning",
+    summary:
+      "Web application firewall and DDoS protection designed, deployed and tuned for your websites and APIs — blocking injection attacks, malicious bots and traffic floods without blocking your customers.",
+    outcomes: [
+      "OWASP Top 10 attack classes blocked at the edge for every public application",
+      "Rules moved from monitoring to blocking without breaking legitimate traffic",
+      "Volumetric and application-layer DDoS absorbed before it reaches your servers",
+    ],
+    phases: [
+      {
+        name: "Assess",
+        duration: "Week 1",
+        body: "Public websites and APIs inventoried, traffic profiled and existing protections and origin exposure reviewed.",
+      },
+      {
+        name: "Deploy",
+        duration: "Week 1–2",
+        body: "WAF placed in front of each application in log-only mode, with DNS or proxy onboarding and TLS configured.",
+      },
+      {
+        name: "Tune",
+        duration: "Week 2–4",
+        body: "False positives reviewed, custom rules, bot management and rate limits added, then policies switched to blocking.",
+      },
+      {
+        name: "Operate",
+        duration: "Ongoing",
+        body: "Alert monitoring by the SOC, rule updates for new attack techniques and emergency virtual patches for new CVEs.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "WAF deployment and tuning",
+        body: "Managed rule sets for injection, cross-site scripting and protocol abuse, plus custom rules written for your application's real behaviour — tuned until they block attacks and nothing else.",
+      },
+      {
+        title: "DDoS protection",
+        body: "Network and application-layer DDoS mitigation, rate limiting and origin cloaking, so attackers cannot bypass the protection by hitting your server's IP address directly.",
+      },
+      {
+        title: "Bot and API protection",
+        body: "Credential stuffing, scraping and inventory-hoarding bots identified and challenged, and API endpoints protected with schema validation and per-client limits.",
+      },
+      {
+        title: "Virtual patching",
+        body: "When a new vulnerability lands — Log4Shell, a CMS plugin flaw, a framework bug — we deploy a targeted rule within hours to block exploitation while the real patch is scheduled.",
+      },
+    ],
+    deliverables: [
+      "Application and API inventory with exposure map",
+      "WAF policy set and documented exceptions",
+      "DDoS response runbook",
+      "Monthly attack and tuning report",
+    ],
+    stack: ["Cloudflare", "AWS WAF & Shield", "Azure Front Door WAF", "Akamai", "F5 / FortiWeb", "ModSecurity / Coraza"],
+    faqs: [
+      {
+        q: "Will a WAF break our website?",
+        a: "Not if it is introduced properly. We start every policy in log-only mode, review what would have been blocked, fix false positives, and only then enable blocking — application by application.",
+      },
+      {
+        q: "If we have a WAF, do we still need to patch?",
+        a: "Yes. A WAF reduces exposure and buys time, but it can be bypassed. It complements secure code, patching and penetration testing rather than replacing them.",
+      },
+      {
+        q: "Which WAF should we use?",
+        a: "Usually the one that fits where your applications already run — your CDN, cloud provider or load balancer. We are vendor-agnostic and recommend on coverage, operational fit and cost.",
       },
     ],
   },

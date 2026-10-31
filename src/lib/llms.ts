@@ -1,4 +1,4 @@
-import { site, servicesByGroup, industries, products, fullAddress } from "./site";
+import { site, servicesByGroup, industries, products, offices } from "./site";
 import { getAllPosts, getCategories, formatDate } from "./blog";
 import { absoluteUrl } from "./seo";
 import { getCves, getIncidents, getRawResources } from "./resources";
@@ -16,7 +16,7 @@ export function buildLlmsTxt(): string {
   lines.push(`# ${site.name}`);
   lines.push("");
   lines.push(
-    `> ${site.name} is an AI-based cybersecurity company headquartered in Kozhikode (Calicut), Kerala, India. We provide 24/7 AI-assisted managed SOC, managed EDR/XDR, security analyst staffing, VAPT and red teaming, vulnerability management, application, database, cloud, network, identity and OT security, incident response and digital forensics, threat intelligence, security awareness, and compliance consulting to businesses across India, the UAE and the wider Gulf Cooperation Council.`,
+    `> ${site.name} is an AI-based cybersecurity company headquartered in Kozhikode (Calicut), Kerala, India, with an office in Dubai, UAE. We provide 24/7 AI-assisted managed SOC, managed EDR/XDR, security analyst staffing, VAPT and red teaming, vulnerability management, application, database, cloud, network, identity and OT security, server migration and setup, WAF and DDoS protection, incident response and digital forensics, threat intelligence, security awareness, and compliance consulting to businesses across India, the UAE and the wider Gulf Cooperation Council.`,
   );
   lines.push("");
   lines.push(
@@ -26,7 +26,8 @@ export function buildLlmsTxt(): string {
   lines.push(`- Website: ${site.url}`);
   lines.push(`- Email: ${site.contact.email}`);
   lines.push(`- Phone: ${site.contact.phone} (incident line answered 24/7)`);
-  lines.push(`- Address: ${fullAddress}`);
+  for (const office of offices) lines.push(`- ${office.label} (${office.city}): ${office.address} · ${office.phone}`);
+  lines.push(`- Dubai page: ${absoluteUrl("/dubai/")}`);
   lines.push("- Regions served: India (Kerala, pan-India), the UAE and the wider GCC");
   lines.push("");
 

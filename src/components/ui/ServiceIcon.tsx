@@ -34,6 +34,10 @@ import {
   Bug,
   Flame,
   BookOpen,
+  Server,
+  ArrowLeftRight,
+  ShieldHalf,
+  MapPin,
   type LucideIcon,
 } from "lucide-react";
 
@@ -77,6 +81,10 @@ const registry: Record<string, LucideIcon> = {
   bug: Bug,
   flame: Flame,
   "book-open": BookOpen,
+  server: Server,
+  migrate: ArrowLeftRight,
+  "shield-half": ShieldHalf,
+  "map-pin": MapPin,
 };
 
 export function ServiceIcon({

@@ -6,7 +6,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { coreValues, timeline, metrics, certifications, site, fullAddress } from "@/lib/site";
+import { coreValues, timeline, metrics, certifications, site, offices } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, organizationSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -112,9 +112,20 @@ export default function AboutPage() {
 
             <div className="card mt-5 p-7">
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-cyan-signal">
-                Headquarters
+                Offices
               </p>
-              <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">{fullAddress}</p>
+              <dl className="mt-4 flex flex-col gap-4">
+                {offices.map((office) => (
+                  <div key={office.id}>
+                    <dt className="text-sm font-medium text-ink">
+                      {office.label} · {office.city}
+                    </dt>
+                    <dd className="mt-1 text-[0.9375rem] leading-relaxed text-ink-muted">
+                      {office.address}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
               <div className="mt-4 flex flex-col text-sm">
                 <a
                   href={`mailto:${site.contact.email}`}

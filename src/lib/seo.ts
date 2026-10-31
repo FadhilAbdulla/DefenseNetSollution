@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { site, fullAddress, services } from "./site";
+import { site, fullAddress, services, dubaiOffice } from "./site";
 
 type PageMetaInput = {
   title: string;
@@ -122,6 +122,7 @@ export const organizationSchema = () => ({
     { "@type": "Country", name: "Kuwait" },
   ],
   sameAs: [site.social.linkedin, site.social.x, "https://tenreply.com"],
+  subOrganization: { "@id": `${site.url}/#dubai` },
 });
 
 export const localBusinessSchema = () => ({
@@ -161,6 +162,30 @@ export const localBusinessSchema = () => ({
     },
   ],
   description: fullAddress,
+});
+
+/** The Dubai office as its own local business, linked to the parent organisation. */
+export const dubaiBusinessSchema = () => ({
+  "@type": ["ProfessionalService", "LocalBusiness"],
+  "@id": `${site.url}/#dubai`,
+  name: `${site.name} — Dubai`,
+  image: absoluteUrl("/img/MainLogo.png"),
+  url: absoluteUrl("/dubai/"),
+  telephone: dubaiOffice.phone,
+  email: site.contact.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: dubaiOffice.streetAddress,
+    addressLocality: dubaiOffice.locality,
+    addressRegion: dubaiOffice.region,
+    addressCountry: dubaiOffice.countryCode,
+  },
+  areaServed: [
+    { "@type": "City", name: "Dubai" },
+    { "@type": "Country", name: "United Arab Emirates" },
+  ],
+  parentOrganization: { "@id": `${site.url}/#organization` },
+  description: `Cybersecurity services in Dubai: managed SOC, VAPT, WAF, server setup and migration, cloud and compliance. ${dubaiOffice.address}.`,
 });
 
 export const websiteSchema = () => ({

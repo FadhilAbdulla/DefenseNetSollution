@@ -30,7 +30,7 @@ const homeFaqs = [
   },
   {
     q: "Which regions do you serve?",
-    a: "We serve clients across India — with a concentration in Kerala, Karnataka, Tamil Nadu and Maharashtra — and across the Gulf Cooperation Council countries. Engagements are delivered remotely, on-site, or as a hybrid model.",
+    a: "We serve clients across India — with a concentration in Kerala, Karnataka, Tamil Nadu and Maharashtra — and across the UAE and the wider Gulf Cooperation Council from our Dubai office at IT Center Building, Al Souq Al Kabeer. Engagements are delivered remotely, on-site, or as a hybrid model.",
   },
   {
     q: "How much does a managed SOC cost for an Indian SME?",

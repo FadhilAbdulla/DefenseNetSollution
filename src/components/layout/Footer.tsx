@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
-import { services, products, site, fullAddress, whatsappLink } from "@/lib/site";
+import { services, products, site, offices, whatsappLink } from "@/lib/site";
 import { getCategories } from "@/lib/blog";
 import { getCves } from "@/lib/resources";
 
@@ -25,6 +25,7 @@ const companyLinks = [
   { label: "About us", href: "/about" },
   { label: "The platform", href: "/platform" },
   { label: "Industries", href: "/industries" },
+  { label: "Dubai office", href: "/dubai" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -189,10 +190,25 @@ export function Footer() {
 
           {/* Contact */}
           <FooterColumn title="Get in touch">
-            <li className="flex gap-2.5 py-1.5 text-sm text-ink-muted">
-              <MapPin size={15} className="mt-0.5 shrink-0 text-cyan-signal" aria-hidden />
-              <span className="leading-relaxed">{fullAddress}</span>
-            </li>
+            {offices.map((office) => (
+              <li key={office.id} className="flex gap-2.5 py-1.5 text-sm text-ink-muted">
+                <MapPin size={15} className="mt-0.5 shrink-0 text-cyan-signal" aria-hidden />
+                <span className="leading-relaxed">
+                  <span className="block font-medium text-ink">
+                    {office.label} · {office.city}
+                  </span>
+                  {office.address}
+                  {office.id !== "kozhikode" ? (
+                    <a
+                      href={`tel:${office.phoneHref}`}
+                      className="mt-1 block py-1 text-ink-muted transition-colors hover:text-cyan-signal focus-ring"
+                    >
+                      {office.phone}
+                    </a>
+                  ) : null}
+                </span>
+              </li>
+            ))}
             <li>
               <a
                 href={`mailto:${site.contact.email}`}
@@ -235,7 +251,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-4 text-xs text-ink-muted md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {site.name}. All rights reserved. · Kozhikode, Kerala, India
+            © {year} {site.name}. All rights reserved. · Kozhikode, India · Dubai, UAE
             <span className="mt-1 block">
               Developed and maintained by{" "}
               <a

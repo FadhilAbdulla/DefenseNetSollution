@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url("/industries/"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: url("/about/"), lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: url("/contact/"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: url("/dubai/"), lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: url("/blog/"), lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: url("/resources/"), lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: url("/resources/cve/"), lastModified: now, changeFrequency: "weekly", priority: 0.85 },

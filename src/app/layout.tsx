@@ -6,7 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { site } from "@/lib/site";
-import { organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/seo";
+import { organizationSchema, localBusinessSchema, dubaiBusinessSchema, websiteSchema } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +55,10 @@ export const metadata: Metadata = {
     "cybersecurity Calicut",
     "cybersecurity company UAE",
     "cybersecurity services Dubai",
+    "cybersecurity company Dubai",
+    "WAF setup Dubai",
+    "server migration Dubai",
+    "server setup and hardening",
     "managed SOC UAE",
     "penetration testing UAE",
     "SOC analyst services",
@@ -121,7 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col antialiased">
-        <JsonLd nodes={[organizationSchema(), localBusinessSchema(), websiteSchema()]} />
+        <JsonLd nodes={[organizationSchema(), localBusinessSchema(), dubaiBusinessSchema(), websiteSchema()]} />
         <Navbar />
         <main id="main" className="flex-1">
           {children}
