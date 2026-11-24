@@ -9,7 +9,7 @@ import { site, offices, whatsappLink } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, localBusinessSchema, dubaiBusinessSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact — Security Engineers in Dubai and Kerala",
+  title: "Contact DefenseNet Solutions",
   description:
     "Contact DefenseNet Solutions in Dubai (IT Center Building, Al Souq Al Kabeer, +971 56 938 0690) or Kozhikode, Kerala. Call +91 86603 71224 for 24/7 incident response, or send an enquiry for SOC, VAPT, WAF, server and compliance work.",
   path: "/contact/",

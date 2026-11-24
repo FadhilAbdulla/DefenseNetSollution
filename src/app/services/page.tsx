@@ -77,6 +77,20 @@ const situations = [
     accent: "cyan" as const,
   },
   {
+    situation: "We do not know everything we have exposed to the internet.",
+    slug: "threat-surface-management",
+    label: "Threat Surface Management",
+    icon: "radar",
+    accent: "amber" as const,
+  },
+  {
+    situation: "Five tools report vulnerabilities and nobody owns the combined list.",
+    slug: "vulnerability-management-orchestration",
+    label: "Vulnerability Orchestration",
+    icon: "workflow",
+    accent: "emerald" as const,
+  },
+  {
     situation: "Our staff keep falling for phishing emails and invoice fraud.",
     slug: "email-security-awareness",
     label: "Email & Awareness",

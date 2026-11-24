@@ -10,7 +10,7 @@ import { PhaseFlow } from "@/components/ui/PhaseFlow";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { accentClasses } from "@/lib/accent";
-import { services, getService, site } from "@/lib/site";
+import { services, getService, site, uaeGuides } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, faqSchema, absoluteUrl } from "@/lib/seo";
 
 type Params = { slug: string };
@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!service) return {};
 
   return pageMetadata({
-    title: `${service.name} in India & the UAE`,
+    title: `${service.name} in India`,
     description: service.summary,
     path: `/services/${service.slug}/`,
   });
@@ -97,6 +97,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<Pa
           <Link href="/services" className="btn btn-ghost">
             All services
           </Link>
+          {uaeGuides[service.slug] ? (
+            <Link href={`/blog/${uaeGuides[service.slug]}`} className="btn btn-ghost">
+              UAE guide
+            </Link>
+          ) : null}
         </div>
       </PageHero>
 

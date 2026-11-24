@@ -38,6 +38,7 @@ import {
   ArrowLeftRight,
   ShieldHalf,
   MapPin,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 
@@ -85,6 +86,7 @@ const registry: Record<string, LucideIcon> = {
   migrate: ArrowLeftRight,
   "shield-half": ShieldHalf,
   "map-pin": MapPin,
+  workflow: Workflow,
 };
 
 export function ServiceIcon({

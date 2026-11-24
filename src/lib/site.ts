@@ -1045,7 +1045,7 @@ export const services: Service[] = [
         body: "A CVSS 9.8 on an isolated test box matters less than a 7.5 on an internet-facing VPN that is being exploited today. We rank by exploitation evidence, exposure and asset value.",
       },
       {
-        title: "Remediation orchestration",
+        title: "Remediation tracking",
         body: "Findings routed to the right team in Jira, ServiceNow or Azure DevOps, grouped into patchable units, with SLA tracking and verification scans — or applied by us under your change process.",
       },
       {
@@ -1151,6 +1151,326 @@ export const services: Service[] = [
       {
         q: "Which languages and platforms do you support?",
         a: "All the mainstream ones — Java, C#/.NET, JavaScript and TypeScript, Python, Go, PHP, Kotlin and Swift — on GitHub, GitLab, Bitbucket and Azure DevOps.",
+      },
+    ],
+  },
+
+  {
+    slug: "threat-surface-management",
+    name: "Threat Surface Management",
+    short: "Threat Surface Mgmt",
+    eyebrow: "Continuous Exposure Management",
+    icon: "radar",
+    accent: "amber",
+    group: "offensive-exposure",
+    tagline: "Every asset, channel and exposure, watched",
+    summary:
+      "Continuous discovery and monitoring of everything an attacker could reach — domains, cloud, APIs, mobile apps, SaaS, code repositories and third parties — with each exposure validated, risk-scored and escalated to an owner.",
+    outcomes: [
+      "One maintained inventory of known, forgotten and unsanctioned assets",
+      "Exposures validated by an analyst before they reach your team",
+      "A risk score and trend leadership can follow from month to month",
+    ],
+    phases: [
+      {
+        name: "Scope",
+        duration: "Week 1",
+        body: "Seed domains, brands, networks and cloud accounts agreed, with ownership confirmed and notification contacts named.",
+      },
+      {
+        name: "Discover",
+        duration: "Week 1–2",
+        body: "Assets mapped across every agreed channel and attributed to an owner, including those missing from your register.",
+      },
+      {
+        name: "Validate",
+        duration: "Week 2–3",
+        body: "False positives removed, real exposures confirmed and the first risk score baselined.",
+      },
+      {
+        name: "Monitor",
+        duration: "Ongoing",
+        body: "Changes tracked continuously, sensitive findings escalated at once and trends reviewed monthly.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "Active Threat Surface Management Across All Channels & Asset Types",
+        body: "Web, DNS, IP space, cloud, APIs, mobile apps, SaaS, code repositories, social channels and supplier connections tracked as one surface, so no asset type falls between teams.",
+      },
+      {
+        title: "All Possible Attack Vectors and Vulnerabilities",
+        body: "Exposed services, weak credentials, misconfiguration, unpatched software, subdomain takeover, leaked secrets and phishing infrastructure assessed together, because attackers do not limit themselves to CVEs.",
+      },
+      {
+        title: "Timely Inadvertent Exposure Discovery and Validation",
+        body: "Public storage, open databases, exposed admin panels, leaked keys and forgotten test systems found early and verified by an analyst before anyone is paged.",
+      },
+      {
+        title: "Dynamic Exposure Risk Scoring and Trend Analysis",
+        body: "Scores recalculated as assets, exploit activity and fixes change, with trends by business unit that show whether exposure is rising or falling.",
+      },
+      {
+        title: "Sensitive Discovery Immediate Notification",
+        body: "Exposed credentials, personal data or an exploitable critical flaw go straight to your named contact under an agreed notification path, not into the next monthly report.",
+      },
+    ],
+    deliverables: [
+      "Attributed asset and exposure inventory",
+      "Validated findings with evidence and owner",
+      "Immediate notifications for sensitive discoveries",
+      "Monthly exposure score and trend report",
+    ],
+    stack: ["OWASP Amass", "Nmap", "Nuclei", "Certificate Transparency", "Prowler", "Gitleaks"],
+    faqs: [
+      {
+        q: "How is this different from vulnerability management?",
+        a: "Vulnerability management works through assets you already know. Threat surface management finds what you do not know you expose, covers non-CVE exposures such as leaked keys and public storage, and feeds both into remediation.",
+      },
+      {
+        q: "Is this the same as Exposure Monitor?",
+        a: "No. This is an analyst-delivered service available now. Exposure Monitor is our own product for part of this work and is still in development with early-access clients.",
+      },
+      {
+        q: "Do you scan assets we do not own?",
+        a: "No. Discovery uses public sources and light fingerprinting. Active testing only happens on assets whose ownership you have confirmed and authorised in writing.",
+      },
+    ],
+  },
+
+  {
+    slug: "threat-informed-defense",
+    name: "Threat-Informed Defense Intelligence",
+    short: "Threat-Informed Defense",
+    eyebrow: "Actionable Intelligence",
+    icon: "brain",
+    accent: "violet",
+    group: "offensive-exposure",
+    tagline: "Intelligence mapped to your assets and controls",
+    summary:
+      "Threat intelligence turned into defensive action — adversaries profiled against your assets, likely exploitation predicted, related breaches tracked, and each technique mapped to the controls and detections that should stop it.",
+    outcomes: [
+      "Defensive priorities based on adversaries relevant to your sector",
+      "Breaches at suppliers and peers assessed for impact on you",
+      "Every intelligence item tied to a control, detection or fix",
+    ],
+    phases: [
+      {
+        name: "Profile",
+        duration: "Week 1–2",
+        body: "Critical assets, sector, geography and technology mapped to the adversaries and techniques that matter.",
+      },
+      {
+        name: "Map",
+        duration: "Week 2–4",
+        body: "Techniques compared with your controls and detections in MITRE ATT&CK to expose the gaps.",
+      },
+      {
+        name: "Act",
+        duration: "Week 4+",
+        body: "Gaps turned into detections, hardening tasks and tests with named owners.",
+      },
+      {
+        name: "Refresh",
+        duration: "Quarterly",
+        body: "Profiles and priorities updated as campaigns, suppliers and your estate change.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "Actionable Threat Informed Defense (CTID) Intelligence",
+        body: "Adversary behaviour mapped to MITRE ATT&CK and to your controls, so intelligence ends in a detection, configuration change or test rather than a PDF.",
+      },
+      {
+        title: "Asset-Focused Threat Profiling",
+        body: "For each critical asset: who would target it, how they would reach it, what they would do there and which control is meant to stop them.",
+      },
+      {
+        title: "AI/ML-Powered Threat Prediction",
+        body: "Exploit-probability models and analysis of attacker activity used to estimate what is likely to be exploited next. Analysts review the output, and predictions are reported with their uncertainty.",
+      },
+      {
+        title: "Related Security Breaches and Incidents",
+        body: "Breaches at suppliers, peers and technology providers monitored and assessed for your exposure: shared vendors, reused credentials, common products and stolen data.",
+      },
+    ],
+    deliverables: [
+      "Asset-level threat profiles",
+      "ATT&CK coverage and gap map",
+      "Related breach impact assessments",
+      "Prioritised defensive action plan",
+    ],
+    stack: ["MITRE ATT&CK", "EPSS", "CISA KEV", "MISP", "OpenCTI", "Sigma"],
+    faqs: [
+      {
+        q: "What does CTID mean here?",
+        a: "The approach follows threat-informed defense, a discipline advanced by the Center for Threat-Informed Defense (CTID). We use its public methods and are not affiliated with the Center.",
+      },
+      {
+        q: "How does this differ from your threat intelligence service?",
+        a: "Threat intelligence monitors for leaks, impersonation and emerging threats. Threat-informed defense uses that intelligence to decide which of your controls and detections to improve and test.",
+      },
+      {
+        q: "Can AI really predict attacks?",
+        a: "It can estimate likelihood, not foretell a specific attack. Models are useful for ranking what deserves attention first, and an analyst reviews the result before it changes your plan.",
+      },
+    ],
+  },
+
+  {
+    slug: "threat-surface-testing",
+    name: "Threat Surface Testing",
+    short: "Threat Surface Testing",
+    eyebrow: "Validation & Testing",
+    icon: "crosshair",
+    accent: "rose",
+    group: "offensive-exposure",
+    tagline: "Prove what matters with controlled exploitation",
+    summary:
+      "Continuous and on-demand testing of your exposed surface and perimeter controls — using safe, authorised exploitation to show which weaknesses lead to real business impact and which can wait.",
+    outcomes: [
+      "Attention focused on weaknesses proven to matter",
+      "Perimeter controls tested against real techniques, not assumed to work",
+      "Business impact demonstrated with evidence, without disrupting operations",
+    ],
+    phases: [
+      {
+        name: "Authorise",
+        duration: "Week 0",
+        body: "Targets, techniques, windows, stop conditions and contacts agreed and authorised in writing.",
+      },
+      {
+        name: "Validate",
+        duration: "Week 1–2",
+        body: "Perimeter controls exercised to confirm what is blocked, what is detected and what passes silently.",
+      },
+      {
+        name: "Exploit",
+        duration: "Week 2–3",
+        body: "Promising weaknesses exploited under control to the minimum depth needed to prove impact.",
+      },
+      {
+        name: "Retest",
+        duration: "Ongoing",
+        body: "Fixes verified and control tests repeated as the surface changes.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "Continuous Perimeter Security Control Validation",
+        body: "Firewalls, WAF, email filtering, VPN and EDR exercised repeatedly with safe test techniques, confirming that controls block and that alerts reach someone.",
+      },
+      {
+        title: "Focus on Vulnerabilities That Really Need Attention",
+        body: "Testing separates what is reachable and exploitable in your environment from findings that only look severe on paper.",
+      },
+      {
+        title: "Safe and Controlled Exploitation to Measure Actual Business Impact",
+        body: "Non-destructive proof, limited data access, rate controls and an immediate stop contact, showing what an attacker could reach in business terms.",
+      },
+      {
+        title: "On-Demand Support for Security Assessment",
+        body: "Testers available for a release, acquisition, supplier review, new CVE or audit question, without scoping a full engagement each time.",
+      },
+    ],
+    deliverables: [
+      "Signed rules of engagement",
+      "Control validation results: blocked, detected, missed",
+      "Evidence of exploitability and business impact",
+      "Retest results and attestation",
+    ],
+    stack: ["Burp Suite Pro", "Nuclei", "Metasploit", "Atomic Red Team", "MITRE Caldera", "Guardian"],
+    faqs: [
+      {
+        q: "Is exploitation safe on production?",
+        a: "Risk is never zero, so it is controlled: written authorisation, agreed windows, non-destructive techniques, rate limits, backups confirmed and a stop contact. Higher-risk tests run in staging.",
+      },
+      {
+        q: "How does this relate to VAPT?",
+        a: "VAPT is a scoped assessment at a point in time. Threat surface testing repeats, follows changes in your exposure and adds control validation. Many clients keep an annual VAPT for audit and use this between tests.",
+      },
+      {
+        q: "How quickly can an on-demand assessment start?",
+        a: "It depends on scope and authorisation. Clients with a standing agreement start fastest because rules of engagement are already signed; response targets are set in the contract.",
+      },
+    ],
+  },
+
+  {
+    slug: "vulnerability-management-orchestration",
+    name: "Vulnerability Management Orchestration (VMO)",
+    short: "Vulnerability Orchestration",
+    eyebrow: "VMO",
+    icon: "workflow",
+    accent: "emerald",
+    group: "offensive-exposure",
+    tagline: "One prioritised queue from finding to fix",
+    summary:
+      "Findings from scanners, penetration tests, cloud tools and bug reports brought into one prioritised workflow — deduplicated, risk-ranked with AI/ML assistance, routed to owners and tracked until a retest confirms the fix.",
+    outcomes: [
+      "One queue instead of a spreadsheet for every tool",
+      "Priorities that reflect exploitation, exposure and business value",
+      "Fixes closed on verification, not on a ticket status",
+    ],
+    phases: [
+      {
+        name: "Connect",
+        duration: "Week 1–2",
+        body: "Scanners, cloud tools, asset inventory and ticketing connected and ownership data cleaned up.",
+      },
+      {
+        name: "Normalise",
+        duration: "Week 2–3",
+        body: "Findings deduplicated, matched to assets and grouped by the fix that resolves them.",
+      },
+      {
+        name: "Automate",
+        duration: "Week 3–5",
+        body: "Prioritisation, routing, SLAs, exceptions and escalation built and tested with your teams.",
+      },
+      {
+        name: "Operate",
+        duration: "Ongoing",
+        body: "Queue managed, fixes verified and rules tuned against what teams actually close.",
+      },
+    ],
+    capabilities: [
+      {
+        title: "AI/ML-Assisted Vulnerability and Risk Prioritization",
+        body: "Exploit probability, known exploitation, reachability, asset value and compensating controls combined into a ranked queue. The reason for each ranking is visible, and an analyst can override it.",
+      },
+      {
+        title: "Vulnerability Management Orchestration (VMO)",
+        body: "The full path from finding to verified closure run as one workflow across security, infrastructure and development teams, with SLAs, escalation and time-limited exceptions.",
+      },
+      {
+        title: "Deduplication and fix grouping",
+        body: "The same issue reported by several tools becomes one record, and findings resolved by the same patch become one piece of work.",
+      },
+      {
+        title: "Verification and reporting",
+        body: "A retest closes the finding. Reports cover SLA performance, ageing, recurrence and accepted risk for engineers, leadership and auditors.",
+      },
+    ],
+    deliverables: [
+      "Connected, deduplicated findings queue",
+      "Documented prioritisation and SLA rules",
+      "Routing and escalation workflows",
+      "Remediation and accepted-risk reporting",
+    ],
+    stack: ["DefectDojo", "Jira", "ServiceNow", "Tenable / Qualys", "EPSS / CISA KEV", "n8n"],
+    faqs: [
+      {
+        q: "Do we have to replace our scanners?",
+        a: "No. Orchestration sits on top of the tools you have. Overlapping tools sometimes become obvious, and we will tell you.",
+      },
+      {
+        q: "How is this different from your vulnerability management service?",
+        a: "Vulnerability management includes the scanning. VMO is for organisations that already have several sources of findings and need one workflow to prioritise, route and verify them.",
+      },
+      {
+        q: "Does AI decide what gets fixed?",
+        a: "No. It assists with ranking and grouping. Rules are documented, each ranking shows its reasons, and people approve priorities and exceptions.",
       },
     ],
   },
@@ -1797,6 +2117,33 @@ export const servicesByGroup = serviceGroups.map((group) => ({
   services: services.filter((s) => s.group === group.id),
 }));
 
+/**
+ * UAE counterpart of each service page. Service pages target India and generic
+ * searches; these articles own the Dubai/UAE query, so the two do not compete.
+ */
+export const uaeGuides: Record<string, string> = {
+  "managed-soc": "managed-soc-dubai",
+  "vapt-penetration-testing": "penetration-testing-dubai",
+  "incident-response": "incident-response-dubai",
+  "cloud-security": "cloud-security-uae",
+  "siem-engineering": "siem-implementation-dubai",
+  "compliance-consulting": "uae-cybersecurity-compliance-guide",
+  "managed-edr-xdr": "managed-edr-xdr-dubai",
+  "security-analyst-services": "security-analysts-dubai",
+  "soc-build-modernisation": "soc-build-dubai",
+  "threat-intelligence": "threat-intelligence-uae",
+  "vulnerability-management": "vulnerability-management-dubai",
+  "application-security": "application-security-devsecops-dubai",
+  "database-security": "database-security-management-dubai",
+  "network-security": "firewall-management-dubai",
+  "identity-access-management": "identity-access-security-uae",
+  "ot-ics-security": "ot-ics-security-uae",
+  "email-security-awareness": "business-email-compromise-dubai",
+  "server-migration": "server-migration-dubai",
+  "server-setup-hardening": "server-setup-hardening-dubai",
+  "waf-ddos-protection": "waf-setup-dubai",
+};
+
 export const getService = (slug: string) => services.find((s) => s.slug === slug);
 
 /* ------------------------------------------------------------------ */
@@ -2352,7 +2699,7 @@ export const products: Product[] = [
     faqs: [
       {
         q: "Is Exposure Monitor available today?",
-        a: "It is in development and onboarding a limited number of early-access clients. If external exposure is an urgent concern now, our VAPT and threat intelligence services cover it manually in the meantime.",
+        a: "It is in development and onboarding a limited number of early-access clients. If external exposure is an urgent concern now, our Threat Surface Management service covers it in the meantime.",
       },
       {
         q: "Does it scan systems it has not been authorised to test?",
