@@ -23,11 +23,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const product = getProduct(slug);
   if (!product) return {};
 
-  return pageMetadata({
+  const meta = pageMetadata({
     title: `${product.name} — ${product.category}`,
     description: product.summary,
     path: `/products/${product.slug}/`,
   });
+  // Tenreply has its own site; this page was competing with it for "tenreply".
+  if (product.slug === "tenreply") {
+    return { ...meta, alternates: { canonical: "https://www.tenreply.com/" } };
+  }
+  return meta;
 }
 
 export default async function ProductPage({ params }: { params: Promise<Params> }) {
